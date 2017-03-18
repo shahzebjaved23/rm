@@ -1,7 +1,7 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "rm"
+    "version": "2.2.0",
+    "name": "Fury"
   },
   "apps": [
     {
@@ -17,11 +17,21 @@
       "test": "test.ts",
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
-      "prefix": "app",
+      "prefix": "ms",
       "styles": [
-        "styles.css"
+        "../node_modules/normalize.css/normalize.css",
+        "./app/core/highlightjs/github.css",
+        "../node_modules/nvd3/build/nv.d3.css",
+        "../node_modules/quill/dist/quill.snow.css",
+        "../node_modules/angular-calendar/dist/css/angular-calendar.css",
+        "styles.scss"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/hammerjs/hammer.js",
+        "../node_modules/sortablejs/Sortable.js",
+        "./app/core/highlightjs/highlight.pack.js",
+        "../node_modules/css-element-queries/src/ResizeSensor.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
@@ -51,7 +61,10 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
-    "component": {}
+    "styleExt": "scss",
+    "component": {
+      "inlineTemplate": false,
+      "spec": true
+    }
   }
 }
