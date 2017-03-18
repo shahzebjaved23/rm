@@ -30,7 +30,6 @@ import {CalendarComponent} from "./demo/apps/calendar/calendar.component";
 import {ChatComponent} from "./demo/apps/chat/chat.component";
 import {AutocompleteComponent} from "./demo/components/autocomplete/autocomplete.component";
 
-import {ShahzebComponent} from "./shahzeb/shahzeb.component";
 
 const routes: Routes = [
   {
@@ -44,10 +43,6 @@ const routes: Routes = [
   {
     path: 'forgot-password',
     component: ForgotPasswordComponent
-  },
-  {
-    path: 'shahzeb',
-    component: ShahzebComponent,
   },
   {
     path: '',

@@ -1,6 +1,7 @@
 export class SidenavItem {
   name: string;
   icon: string;
+  image: string;
   route: string;
   parent: SidenavItem;
   subItems: SidenavItem[];
@@ -12,6 +13,7 @@ export class SidenavItem {
     if (model) {
       this.name = model.name;
       this.icon = model.icon;
+      this.image = model.image;
       this.route = model.route;
       this.parent = model.parent;
       this.subItems = this.mapSubItems(model.subItems);

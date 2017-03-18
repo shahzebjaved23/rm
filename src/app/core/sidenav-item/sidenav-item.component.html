@@ -1,15 +1,18 @@
 <a class="sidenav-anchor"
+   style="height: 60px;margin: auto;"
    *ngIf="!item.hasSubItems()"
    md-list-item md-ripple
    [routerLink]="[item.route]" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-
-  <md-icon>{{ item.icon }}</md-icon>
-  <span class="sidenav-item-name fade-in-on-icon-sidenav">{{ item.name }}</span>
+  <span class="sidenav-item-name fade-in-on-icon-sidenav" style="text-align: center;margin-left: 0;">
+    <img src="{{item.image}}" class="img img-responsive" style="margin: auto;display: block;" width="30px" height="30px" alt="">
+    {{ item.name }}
+  </span>
   <span fxFlex><!-- fill space --></span>
-  <span class="badge fade-in-on-icon-sidenav" *ngIf="item.badge" [style.background-color]="item.badgeColor">{{ item.badge }}</span>
 </a>
 
-<a class="sidenav-anchor"
+<a 
+   style="height: 60px;margin: auto;" 
+   class="sidenav-anchor"
    *ngIf="item.hasSubItems()"
    md-list-item md-ripple
    (click)="toggleDropdown()">

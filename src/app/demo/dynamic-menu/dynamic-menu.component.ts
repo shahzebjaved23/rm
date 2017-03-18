@@ -32,7 +32,7 @@ export class DynamicMenuComponent implements OnInit {
       this.dynamicMenuService.dynamicItem = null;
       this.item = null;
     } else {
-      this.dynamicMenuService.dynamicItem = this.sidenavService.addItem('Dynamic Menu Item', 'donut_large', '', 10);
+      // this.dynamicMenuService.dynamicItem = this.sidenavService.addItem('Dynamic Menu Item', 'donut_large', '', 10);
       this.item = this.dynamicMenuService.dynamicItem;
     }
   }
