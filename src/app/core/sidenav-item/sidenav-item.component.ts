@@ -21,9 +21,7 @@ export class SidenavItemComponent implements OnInit {
 
   @HostBinding('class.sidenav-item') sidenavItemClass: boolean = true;
 
-  constructor(
-    private sidenavService: SidenavService
-  ) { }
+  constructor(private sidenavService: SidenavService){}
 
   ngOnInit() {
   }

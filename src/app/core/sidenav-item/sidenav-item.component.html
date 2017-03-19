@@ -3,9 +3,11 @@
    *ngIf="!item.hasSubItems()"
    md-list-item md-ripple
    [routerLink]="[item.route]" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-  <span class="sidenav-item-name fade-in-on-icon-sidenav" style="text-align: center;margin-left: 0;">
-    <img src="{{item.image}}" class="img img-responsive" style="margin: auto;display: block;" width="30px" height="30px" alt="">
-    {{ item.name }}
+
+  
+  <span class="sidenav-item-name fade-in-on-icon-sidenav"style="text-align: center;margin:auto;width: 100%;">
+    <img src="{{item.image}}" class="img img-responsive" style="align-self: center;margin: auto;display:block;" width="30px" height="30px" alt="">
+    {{ item.name }}  
   </span>
   <span fxFlex><!-- fill space --></span>
 </a>

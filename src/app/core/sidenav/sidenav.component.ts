@@ -25,13 +25,15 @@ export class SidenavComponent implements OnInit, OnDestroy {
     private router: Router,
     private breadcrumbService: BreadcrumbService,
     private snackBar: MdSnackBar
-  ) { }
+  ){
+    
+  }
 
   ngOnInit() {
+
     this._itemsSubscription = this.sidenavService.items$
       .subscribe((items: SidenavItem[]) => {
         this.items = this.sortRecursive(items, 'position');
-        console.log(this.items);
       });
 
     this._routerEventsSubscription = this.router.events.subscribe((event) => {
@@ -39,7 +41,7 @@ export class SidenavComponent implements OnInit, OnDestroy {
         this.sidenavService.nextCurrentlyOpenByRoute(event.url);
         setTimeout(() => {
           window.dispatchEvent(new Event('resize'));
-        }, 400);
+        }, 300);
       }
     });
 
@@ -85,15 +87,8 @@ export class SidenavComponent implements OnInit, OnDestroy {
   toggleIconSidenav() {
     setTimeout(() => {
       window.dispatchEvent(new Event('resize'));
-    }, 300);
-
+    }, 400);
     this.sidenavService.isIconSidenav = !this.sidenavService.isIconSidenav;
-
-    if (this.sidenavService.isIconSidenav) {
-      this.snackBar.open('You activated Icon-Sidenav, move your mouse to the content and see what happens!', '', {
-        duration: 10000
-      });
-    }
   }
 
   isIconSidenav(): boolean {

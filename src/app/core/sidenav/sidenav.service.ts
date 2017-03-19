@@ -22,17 +22,17 @@ export class SidenavService {
     // let dashboard = menu.addItem('Dashboard', 'dashboard', '/', 1);
 
     menu.addItem('Dashboard',"assets/img/rm/dashboard.png", 'chat', '/apps/inbox', 1, '22', '#7986CC');
-    menu.addItem('Admin', "assets/img/rm/",'chat', '/apps/chat', 2, '14', '#E15C74');
-    menu.addItem('Stores', "assets/img/rm/",'date_range', '/apps/calendar', 3);
-    menu.addItem('Product', "assets/img/rm/",'date_range', '/apps/calendar', 3);
-    menu.addItem('Inventory', "assets/img/rm/",'date_range', '/apps/calendar', 3);
-    menu.addItem('Sales', "assets/img/rm/",'date_range', '/apps/calendar', 3);
-    menu.addItem('Fulfilment', "assets/img/rm/",'date_range', '/apps/calendar', 3);
-    menu.addItem('Customers', "assets/img/rm/",'date_range', '/apps/calendar', 3);
-    menu.addItem('Channels', "assets/img/rm/",'date_range', '/apps/calendar', 3);
-    menu.addItem('Finance', "assets/img/rm/",'date_range', '/apps/calendar', 3);
-    menu.addItem('Reports', "assets/img/rm/",'date_range', '/apps/calendar', 3);
-    menu.addItem('Settings', "assets/img/rm/",'date_range', '/apps/calendar', 3);
+    menu.addItem('Admin', "assets/img/rm/system-administration.png",'chat', '/apps/chat', 2, '14', '#E15C74');
+    menu.addItem('Stores', "assets/img/rm/stores.png",'date_range', '/apps/calendar', 3);
+    menu.addItem('Product', "assets/img/rm/product-and-pricing.png",'date_range', '/apps/calendar', 3);
+    menu.addItem('Inventory', "assets/img/rm/inventory.png",'date_range', '/apps/calendar', 3);
+    menu.addItem('Sales', "assets/img/rm/sales-orders.png",'date_range', '/apps/calendar', 3);
+    menu.addItem('Fulfilment', "assets/img/rm/packing-and-shipping.png",'date_range', '/apps/calendar', 3);
+    menu.addItem('Customers', "assets/img/rm/customers-and-customer-relations.png",'date_range', '/apps/calendar', 3);
+    menu.addItem('Channels', "assets/img/rm/sales-channel.png",'date_range', '/apps/calendar', 3);
+    menu.addItem('Finance', "assets/img/rm/finance-and-accounting.png",'date_range', '/apps/calendar', 3);
+    menu.addItem('Reports', "assets/img/rm/reporting-analysis.png",'date_range', '/apps/calendar', 3);
+    menu.addItem('Settings', "assets/img/rm/system-settings.png",'date_range', '/apps/calendar', 3);
 
     // let components =  menu.addItem('Product', 'layers', null, 3);
     // menu.addSubItem(components, 'Autocomplete', '/components/autocomplete', 1);
