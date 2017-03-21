@@ -16,6 +16,8 @@ export class SidenavItemComponent implements OnInit {
   @Input('item')
   item: SidenavItem;
 
+  isMenuOpen: boolean = false;
+
   @ViewChild('sliding') sliding;
   @ViewChild('listItem') listItem;
 
@@ -33,13 +35,17 @@ export class SidenavItemComponent implements OnInit {
   }
 
   onHover(e){
-    this.sidenavService.hoverEvent("mouseover");
-    // $(this.sliding.nativeElement).show();
+    if(this.isMenuOpen){
+      this.sidenavService.hoverEvent("mouseleave");
+      this.isMenuOpen = false;  
+    }else{
+      this.sidenavService.hoverEvent("mouseover");
+      this.isMenuOpen = true; 
+    }
   }
 
   offHover(e){
     this.sidenavService.hoverEvent("mouseleave");
-    // $(this.sliding.nativeElement).hide(); 
   }
 
   toggleDropdown(): void {
