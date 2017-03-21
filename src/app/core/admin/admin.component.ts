@@ -66,7 +66,6 @@ export class AdminComponent implements OnInit {
         $(this.col8.nativeElement).removeClass('col-md-8');
         $(this.col4.nativeElement).removeClass('col-md-4').hide();
         $(this.row.nativeElement).removeClass('row');
-        $(this.col8.nativeElement).width("100%");
       }
     })
 

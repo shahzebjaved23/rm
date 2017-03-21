@@ -1,5 +1,6 @@
 <a class="sidenav-anchor"
    (click)="onHover()"
+   (mouseleave)="offHover()"
    style="height: 60px;margin: auto;"
    *ngIf="!item.hasSubItems()"
    #listItem
