@@ -21,6 +21,7 @@ export class AdminComponent implements OnInit {
   @ViewChild('col4') col4;
   @ViewChild('col8') col8;
   
+  
   private _mediaSubscription: Subscription;
   sidenavOpen: boolean = false;
   sidenavMode: string = 'side';
@@ -48,8 +49,10 @@ export class AdminComponent implements OnInit {
     });
 
     $(this.row.nativeElement).removeClass('row');
-    $(this.col4.nativeElement).removeClass('col-md-4').hide();
     $(this.col8.nativeElement).removeClass('col-md-8');
+    $(this.col4.nativeElement).removeClass('col-md-4').hide();
+    
+   
 
     this.sidenavService.hoverEventEmitter.subscribe((data)=>{
       if(data == "mouseover"){
@@ -57,12 +60,13 @@ export class AdminComponent implements OnInit {
         $(this.row.nativeElement).addClass('row');
         $(this.col4.nativeElement).addClass('col-md-4').show("slide");
         $(this.col8.nativeElement).addClass('col-md-8');
-        
+        // $(this.col8.nativeElement).width($(this.col8.nativeElement).width()-$(this.col4.nativeElement).width() + "px");
       }else if(data == "mouseleave"){
         console.log("mouse leave called");
-        $(this.row.nativeElement).removeClass('row');
-        $(this.col4.nativeElement).removeClass('col-md-4').hide();
         $(this.col8.nativeElement).removeClass('col-md-8');
+        $(this.col4.nativeElement).removeClass('col-md-4').hide();
+        $(this.row.nativeElement).removeClass('row');
+        $(this.col8.nativeElement).width("100%");
       }
     })
 

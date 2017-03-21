@@ -33,17 +33,6 @@ export class SidenavComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.sidenavService.hoverEventEmitter.subscribe((data)=>{
-      if(data == "mouseover"){
-        console.log("mouse over called");
-        $(this.sidebarContainer.nativeElement).css("z-index",5000).css("width","500px").css("max-width","500px").width();
-        
-      }else if(data == "mouseleave"){
-        console.log("mouse leave called");
-        $(this.sidebarContainer.nativeElement).css("z-index",5000).css("width","100px").css("max-width","100px").width();
-      }
-    })
-
     this._itemsSubscription = this.sidenavService.items$
       .subscribe((items: SidenavItem[]) => {
         this.items = this.sortRecursive(items, 'position');

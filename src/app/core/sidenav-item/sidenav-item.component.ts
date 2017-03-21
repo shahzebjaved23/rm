@@ -32,12 +32,12 @@ export class SidenavItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  onHover(){
+  onHover(e){
     this.sidenavService.hoverEvent("mouseover");
     // $(this.sliding.nativeElement).show();
   }
 
-  offHover(){
+  offHover(e){
     this.sidenavService.hoverEvent("mouseleave");
     // $(this.sliding.nativeElement).hide(); 
   }
