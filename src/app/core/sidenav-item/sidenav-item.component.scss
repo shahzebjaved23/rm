@@ -200,6 +200,31 @@ md-nav-list a.sidenav-anchor {
   }
 }
 
+.my-sidebar {
+  display: block;
+}
+
+.my-sidebar:hover > .main-sliding-menu{
+  transition: left 0.2s;
+  display: block;
+}
+
+.main-sliding-menu {
+  list-style: none;
+  float: left;
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+}
+
+
+
 
 
 

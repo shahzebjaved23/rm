@@ -3,6 +3,8 @@ import {Subscription} from "rxjs";
 import {MediaChange, ObservableMedia} from "@angular/flex-layout";
 import {Router, NavigationEnd} from "@angular/router";
 import * as screenfull from 'screenfull';
+import * as $ from "jquery";
+import { SidenavService } from "../sidenav/sidenav.service";
 
 @Component({
   selector: 'ms-admin',
@@ -12,9 +14,13 @@ import * as screenfull from 'screenfull';
 })
 export class AdminComponent implements OnInit {
 
-  @ViewChild('sidenav')
-  sidenav;
-
+  @ViewChild('sidenav') sidenav;
+  @ViewChild('scrollContainer') scrollContainer;
+  @ViewChild('sidenavContainer') sidenavContainer;
+  @ViewChild('row') row;
+  @ViewChild('col4') col4;
+  @ViewChild('col8') col8;
+  
   private _mediaSubscription: Subscription;
   sidenavOpen: boolean = false;
   sidenavMode: string = 'side';
@@ -29,6 +35,7 @@ export class AdminComponent implements OnInit {
   constructor(
     private media: ObservableMedia,
     private router: Router,
+    private sidenavService: SidenavService
   ) { }
 
   ngOnInit() {
@@ -39,6 +46,25 @@ export class AdminComponent implements OnInit {
       this.sidenavMode = (isMobile) ? 'over' : 'side';
       this.sidenavOpen = !isMobile;
     });
+
+    $(this.row.nativeElement).removeClass('row');
+    $(this.col4.nativeElement).removeClass('col-md-4').hide();
+    $(this.col8.nativeElement).removeClass('col-md-8');
+
+    this.sidenavService.hoverEventEmitter.subscribe((data)=>{
+      if(data == "mouseover"){
+        console.log("mouse over called");
+        $(this.row.nativeElement).addClass('row');
+        $(this.col4.nativeElement).addClass('col-md-4').show("slide");
+        $(this.col8.nativeElement).addClass('col-md-8');
+        
+      }else if(data == "mouseleave"){
+        console.log("mouse leave called");
+        $(this.row.nativeElement).removeClass('row');
+        $(this.col4.nativeElement).removeClass('col-md-4').hide();
+        $(this.col8.nativeElement).removeClass('col-md-8');
+      }
+    })
 
     this._routerEventsSubscription = this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd && this.isMobile) {

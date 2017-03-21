@@ -1,20 +1,22 @@
 <a class="sidenav-anchor"
+   (mouseover)="onHover()"
+   (mouseleave)="offHover()"
    style="height: 60px;margin: auto;"
    *ngIf="!item.hasSubItems()"
+   #listItem
    md-list-item md-ripple
    [routerLink]="[item.route]" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
 
-  
-  <span class="sidenav-item-name fade-in-on-icon-sidenav"style="text-align: center;margin:auto;width: 100%;">
+  <span class="sidenav-item-name fade-in-on-icon-sidenav" style="text-align: center;margin:auto;width: 100%;">
     <img src="{{item.image}}" class="img img-responsive" style="align-self: center;margin: auto;display:block;" width="30px" height="30px" alt="">
-    {{ item.name }}  
-  </span>
-  <span fxFlex><!-- fill space --></span>
+      {{ item.name }}  
+      
+  </span>    
 </a>
 
 <a 
    style="height: 60px;margin: auto;" 
-   class="sidenav-anchor"
+   class="sidenav-anchor "
    *ngIf="item.hasSubItems()"
    md-list-item md-ripple
    (click)="toggleDropdown()">
@@ -24,10 +26,13 @@
   <span fxFlex><!-- fill space --></span>
   <span class="badge fade-in-on-icon-sidenav" *ngIf="item.badge" [style.background-color]="item.badgeColor" style="margin-right: 12px;">{{ item.badge }}</span>
   <md-icon *ngIf="item.hasSubItems()" class="sidenav-item-dropdown-indicator rotate fade-in-on-icon-sidenav">expand_more</md-icon>
-
 </a>
+
+
 
 <md-nav-list class="sidenav-list sidenav-list-nested"
      fxLayout="column" [style.height]="getSubItemsHeight()">
   <ms-sidenav-item *ngFor="let subItem of item.subItems" [item]="subItem"></ms-sidenav-item>
 </md-nav-list>
+
+

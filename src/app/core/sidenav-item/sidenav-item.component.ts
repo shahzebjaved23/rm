@@ -2,6 +2,8 @@ import { Component, OnInit, ViewEncapsulation, HostBinding, ViewChild, ElementRe
 import { Input } from "@angular/core/src/metadata/directives";
 import { SidenavItem } from "./sidenav-item.model";
 import { SidenavService } from "../sidenav/sidenav.service";
+import * as $ from "jquery";
+import { SidemenuService } from "../../sidemenu.service";
 
 @Component({
   selector: 'ms-sidenav-item',
@@ -14,6 +16,10 @@ export class SidenavItemComponent implements OnInit {
   @Input('item')
   item: SidenavItem;
 
+  @ViewChild('sliding') sliding;
+  @ViewChild('listItem') listItem;
+
+
   @HostBinding('class.open')
   get isOpen() {
     return this.sidenavService.isOpen(this.item);
@@ -24,6 +30,16 @@ export class SidenavItemComponent implements OnInit {
   constructor(private sidenavService: SidenavService){}
 
   ngOnInit() {
+  }
+
+  onHover(){
+    this.sidenavService.hoverEvent("mouseover");
+    // $(this.sliding.nativeElement).show();
+  }
+
+  offHover(){
+    this.sidenavService.hoverEvent("mouseleave");
+    // $(this.sliding.nativeElement).hide(); 
   }
 
   toggleDropdown(): void {

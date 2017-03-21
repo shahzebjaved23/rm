@@ -1,10 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { SidenavItem } from "../sidenav-item/sidenav-item.model";
 import { BehaviorSubject, Observable } from "rxjs";
 import * as _ from 'lodash';
 
 @Injectable()
 export class SidenavService {
+
+  public hoverEventEmitter = new EventEmitter<string>();
 
   private _itemsSubject: BehaviorSubject<SidenavItem[]> = new BehaviorSubject<SidenavItem[]>([]);
   private _items: SidenavItem[] = [ ];
@@ -77,6 +79,10 @@ export class SidenavService {
     // let level3 = menu.addSubItem(level2, 'Level 3', '/level1/level2/level3', 3);
     // let level4 = menu.addSubItem(level3, 'Level 4', '/level1/level2/level3/level4', 4);
     // let level5 = menu.addSubItem(level4, 'Level 5', '/level1/level2/level3/level4/level5', 5);
+  }
+
+  hoverEvent(value: string){
+    this.hoverEventEmitter.emit(value)
   }
 
   addItem(name: string, image: string ,icon: string, route: string, position: number, badge?: string, badgeColor?: string) {

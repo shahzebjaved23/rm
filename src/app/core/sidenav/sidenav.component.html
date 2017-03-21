@@ -14,12 +14,13 @@
     </div>
   </md-toolbar>
 
-  <div class="sidenav-scrollbar-container" fxLayout="column">
-    <perfect-scrollbar>
-      <md-nav-list fxLayout="column" class="sidenav-list sidenav-toplevel">
-        <ms-sidenav-item *ngFor="let item of items" [item]="item"></ms-sidenav-item>
-      </md-nav-list>
-    </perfect-scrollbar>
-  </div>
-
+    <div style="float: left;" class="sidenav-scrollbar-container" fxLayout="column">
+        <perfect-scrollbar>
+          <md-nav-list fxLayout="column" class="sidenav-list sidenav-toplevel">
+            <ms-sidenav-item *ngFor="let item of items" [item]="item"></ms-sidenav-item>
+          </md-nav-list>
+        </perfect-scrollbar>  
+    </div>
+    
 </div>
+

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, OnDestroy , ViewChild} from '@angular/core';
 import { SidenavItem } from "../sidenav-item/sidenav-item.model";
 import { SidenavService } from "./sidenav.service";
 import * as _ from 'lodash';
@@ -6,6 +6,7 @@ import { Router, NavigationEnd } from "@angular/router";
 import { Subscription } from "rxjs";
 import { BreadcrumbService } from "../breadcrumb/breadcrumb.service";
 import {MdSnackBar} from "@angular/material";
+import * as $ from 'jquery';
 
 @Component({
   selector: 'ms-sidenav',
@@ -15,6 +16,7 @@ import {MdSnackBar} from "@angular/material";
 })
 export class SidenavComponent implements OnInit, OnDestroy {
 
+  @ViewChild('sidebarContainer') sidebarContainer;
   items: SidenavItem[];
 
   private _itemsSubscription: Subscription;
@@ -30,6 +32,17 @@ export class SidenavComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+
+    this.sidenavService.hoverEventEmitter.subscribe((data)=>{
+      if(data == "mouseover"){
+        console.log("mouse over called");
+        $(this.sidebarContainer.nativeElement).css("z-index",5000).css("width","500px").css("max-width","500px").width();
+        
+      }else if(data == "mouseleave"){
+        console.log("mouse leave called");
+        $(this.sidebarContainer.nativeElement).css("z-index",5000).css("width","100px").css("max-width","100px").width();
+      }
+    })
 
     this._itemsSubscription = this.sidenavService.items$
       .subscribe((items: SidenavItem[]) => {
