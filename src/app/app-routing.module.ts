@@ -29,6 +29,7 @@ import {InboxComponent} from "./demo/apps/inbox/inbox.component";
 import {CalendarComponent} from "./demo/apps/calendar/calendar.component";
 import {ChatComponent} from "./demo/apps/chat/chat.component";
 import {AutocompleteComponent} from "./demo/components/autocomplete/autocomplete.component";
+import {HomeComponent} from "./home/home.component";
 
 
 const routes: Routes = [
@@ -46,6 +47,10 @@ const routes: Routes = [
   },
   {
     path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'admin',
     component: AdminComponent,
     children: [
       {
@@ -53,99 +58,99 @@ const routes: Routes = [
         component: DashboardComponent,
       },
       {
-        path: 'apps/inbox',
+        path: 'admin/apps/inbox',
         component: InboxComponent
       },
       {
-        path: 'apps/calendar',
+        path: 'admin/apps/calendar',
         component: CalendarComponent
       },
       {
-        path: 'apps/chat',
+        path: 'admin/apps/chat',
         component: ChatComponent
       },
       {
-        path: 'dashboard-v1',
+        path: 'admin/dashboard-v1',
         component: DashboardV1Component,
       },
       {
-        path: 'components/autocomplete',
+        path: 'admin/components/autocomplete',
         component: AutocompleteComponent
       },
       {
-        path: 'components/buttons',
+        path: 'admin/components/buttons',
         component: ButtonsComponent
       },
       {
-        path: 'components/cards',
+        path: 'admin/components/cards',
         component: CardsComponent
       },
       {
-        path: 'components/dialogs',
+        path: 'admin/components/dialogs',
         component: DialogsComponent
       },
       {
-        path: 'components/grid-list',
+        path: 'admin/components/grid-list',
         component: GridListComponent
       },
       {
-        path: 'components/lists',
+        path: 'admin/components/lists',
         component: ListsComponent
       },
       {
-        path: 'components/menu',
+        path: 'admin/components/menu',
         component: MenuComponent
       },
       {
-        path: 'components/slider',
+        path: 'admin/components/slider',
         component: SliderComponent
       },
       {
-        path: 'components/snack-bar',
+        path: 'admin/components/snack-bar',
         component: SnackBarComponent
       },
       {
-        path: 'components/tooltips',
+        path: 'admin/components/tooltips',
         component: TooltipComponent
       },
       {
-        path: 'dynamic-menu',
+        path: 'admin/dynamic-menu',
         component: DynamicMenuComponent
       },
       {
-        path: 'forms/form-elements',
+        path: 'admin/forms/form-elements',
         component: FormElementsComponent
       },
       {
-        path: 'forms/form-wizard',
+        path: 'admin/forms/form-wizard',
         component: FormWizardComponent
       },
       {
-        path: 'icons',
+        path: 'admin/icons',
         component: IconsComponent
       },
       {
-        path: 'level1/level2/level3/level4/level5',
+        path: 'admin/level1/level2/level3/level4/level5',
         component: Level5Component
       },
       {
-        path: 'maps/google-maps',
+        path: 'admin/maps/google-maps',
         component: GoogleMapsComponent
       },
       {
-        path: 'tables/simple-table',
+        path: 'admin/tables/simple-table',
         component: SimpleTableComponent
       },
       {
-        path: 'tables/fixed-header-table',
+        path: 'admin/tables/fixed-header-table',
         component: FixedHeaderTableComponent
       },
       {
-        path: 'drag-and-drop',
+        path: 'admin/drag-and-drop',
         component: DragAndDropComponent
       },
       {
-        path: 'editor',
+        path: 'admin/editor',
         component: EditorComponent
       },
     ]

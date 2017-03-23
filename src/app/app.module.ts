@@ -69,6 +69,7 @@ import { CalendarEditComponent } from './demo/apps/calendar/calendar-edit/calend
 import { ChatComponent } from './demo/apps/chat/chat.component';
 import {CommonModule} from "@angular/common";
 import { AutocompleteComponent } from './demo/components/autocomplete/autocomplete.component';
+import { HomeComponent } from './home/home.component';
 
 const perfectScrollbarConfig: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -130,7 +131,8 @@ const sortablejsConfig: SortablejsOptions = {
     CalendarComponent,
     CalendarEditComponent,
     ChatComponent,
-    AutocompleteComponent
+    AutocompleteComponent,
+    HomeComponent
   ],
   entryComponents: [
     DemoDialog,
