@@ -59,13 +59,13 @@ export class AdminComponent implements OnInit {
         console.log("mouse over called");
         $(this.row.nativeElement).addClass('row');
         $(this.col4.nativeElement).addClass('col-md-4').show("slide");
-        $(this.col8.nativeElement).addClass('col-md-8');
-        // $(this.col8.nativeElement).width($(this.col8.nativeElement).width()-$(this.col4.nativeElement).width() + "px");
+        $(this.col8.nativeElement).hide().addClass("col-md-8").show(600);
       }else if(data == "mouseleave"){
         console.log("mouse leave called");
-        $(this.col8.nativeElement).removeClass('col-md-8');
-        $(this.col4.nativeElement).removeClass('col-md-4').hide();
-        $(this.row.nativeElement).removeClass('row');
+        // $(this.col8.nativeElement).css('margin-left','0px');
+        $(this.col8.nativeElement).show(400).removeClass("col-md-8");
+        $(this.col4.nativeElement).hide().removeClass('col-md-4');
+        $(this.row.nativeElement).show(400).removeClass('row');
       }
     })
 

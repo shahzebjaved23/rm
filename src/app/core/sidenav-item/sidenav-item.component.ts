@@ -3,7 +3,6 @@ import { Input } from "@angular/core/src/metadata/directives";
 import { SidenavItem } from "./sidenav-item.model";
 import { SidenavService } from "../sidenav/sidenav.service";
 import * as $ from "jquery";
-import { SidemenuService } from "../../sidemenu.service";
 
 @Component({
   selector: 'ms-sidenav-item',
@@ -13,8 +12,7 @@ import { SidemenuService } from "../../sidemenu.service";
 })
 export class SidenavItemComponent implements OnInit {
 
-  @Input('item')
-  item: SidenavItem;
+  @Input('item') item: SidenavItem;
 
   isMenuOpen: boolean = false;
 
@@ -42,10 +40,6 @@ export class SidenavItemComponent implements OnInit {
       this.sidenavService.hoverEvent("mouseover");
       this.isMenuOpen = true; 
     }
-  }
-
-  offHover(e){
-    this.sidenavService.hoverEvent("mouseleave");
   }
 
   toggleDropdown(): void {
