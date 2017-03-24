@@ -7,6 +7,7 @@ import * as _ from 'lodash';
 export class SidenavService {
 
   public hoverEventEmitter = new EventEmitter<string>();
+  public navItemEmitter = new EventEmitter<SidenavItem>();
 
   private _itemsSubject: BehaviorSubject<SidenavItem[]> = new BehaviorSubject<SidenavItem[]>([]);
   private _items: SidenavItem[] = [ ];
@@ -83,6 +84,10 @@ export class SidenavService {
 
   hoverEvent(value: string){
     this.hoverEventEmitter.emit(value)
+  }
+
+  sendItem(item:SidenavItem){
+    this.navItemEmitter.emit(item);
   }
 
   addItem(name: string, image: string ,icon: string, route: string, position: number, badge?: string, badgeColor?: string) {

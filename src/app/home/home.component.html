@@ -1,7 +1,7 @@
 <div>
 	<img class="img img-responsive" width="300px" style="margin:auto;" src="assets/img/rm/My-Beauty-logo.png" alt=""/>
 
-	<form class="form-home" style="text-align: center;width: 300px;margin:auto; " action="#" method="get" accept-charset="utf-8">
+	<form (ngSubmit)="onSubmit(user)" class="form-home" style="text-align: center;width: 300px;margin:auto; " action="#" method="get" accept-charset="utf-8">
 
 		<label for="">username/email</label>
 		<input style="border-radius: 20px;" type="email"/>
