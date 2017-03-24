@@ -56,14 +56,54 @@ export class SidenavService {
     menu.addSubItem(promotions_sub,'Catalog Price Rules','#',1);
     menu.addSubItem(promotions_sub,'Shopping Cart Rules','#',2);
     menu.addSubItem(promotions_sub,'Coupon Codes','#',3);
-    
 
 
-    let inevntory = menu.addItem('Inventory', "assets/img/rm/inventory.png",'date_range', '/apps/calendar', 3);
+
+
+    let inventory = menu.addItem('Inventory', "assets/img/rm/inventory.png",'date_range', '/apps/calendar', 3);
+    let inventory_sub = menu.addSubItem(inventory,'Inventory','#',1);
+    menu.addSubItem(inventory_sub,'Configuration','#',1);
+    menu.addSubItem(inventory_sub,'Wharehouses','#',2);
+    menu.addSubItem(inventory_sub,'Wharehouse Routing','#',3);
+    menu.addSubItem(inventory_sub,'Stocktaking','#',4);
+    menu.addSubItem(inventory_sub,'Stock Transfers','#',5);
+    menu.addSubItem(inventory_sub,'Stock Movements','#',6);
+
+    let procurement_sub = menu.addSubItem(inventory,'Procurement','#',2);
+    menu.addSubItem(procurement_sub,'Configuration','#',1);
+    menu.addSubItem(procurement_sub,'Demand Planning','#',2);
+    menu.addSubItem(procurement_sub,'Stock Requisition','#',3);
+    menu.addSubItem(procurement_sub,'Purchase Orders','#',4);
+    menu.addSubItem(procurement_sub,'Suppliers','#',5);
+    menu.addSubItem(procurement_sub,'Link Products to suppliers','#',6);
+    menu.addSubItem(procurement_sub,'Products on order','#',7);
+
     let sales = menu.addItem('Sales', "assets/img/rm/sales-orders.png",'date_range', '/apps/calendar', 3);
-    let fufilment = menu.addItem('Fulfilment', "assets/img/rm/packing-and-shipping.png",'date_range', '/apps/calendar', 3);
+    menu.addSubItem(sales,'Orders','#',1);
+    menu.addSubItem(sales,'Invoices','#',2);
+    menu.addSubItem(sales,'Shipments','#',3);
+    menu.addSubItem(sales,'Credit Memos','#',4);
+
+    let fulfilment = menu.addItem('Fulfilment', "assets/img/rm/packing-and-shipping.png",'date_range', '/apps/calendar', 3);
+    menu.addSubItem(fulfilment,'Configuration','#',1);
+    menu.addSubItem(fulfilment,'Order Preperations','#',2);
+    menu.addSubItem(fulfilment,'Shipping methods and tariffs','#',3);
+
     let customers = menu.addItem('Customers', "assets/img/rm/customers-and-customer-relations.png",'date_range', '/apps/calendar', 3);
+    menu.addSubItem(customers,'Customer Configuration','#',1);
+    menu.addSubItem(customers,'Customers','#',2);
+    menu.addSubItem(customers,'Customer Groups','#',3);
+    menu.addSubItem(customers,'Customer Relations(CRM)','#',4);
+    menu.addSubItem(customers,'Newsletter Subscriptions','#',5);
+    menu.addSubItem(customers,'Email Configurations and Templates','#',6);
+    menu.addSubItem(customers,'Sms Configurations and Templates','#',7);
+
     let channels = menu.addItem('Channels', "assets/img/rm/sales-channel.png",'date_range', '/apps/calendar', 3);
+    menu.addSubItem(channels,'Dropshippers','#',1);
+    menu.addSubItem(channels,'Resellers','#',2);
+    menu.addSubItem(channels,'Social Media','#',3);
+    menu.addSubItem(channels,'MarketPlaces','#',4);
+
     let finance = menu.addItem('Finance', "assets/img/rm/finance-and-accounting.png",'date_range', '/apps/calendar', 3);
     let reports = menu.addItem('Reports', "assets/img/rm/reporting-analysis.png",'date_range', '/apps/calendar', 3);
     let settings = menu.addItem('Settings', "assets/img/rm/system-settings.png",'date_range', '/apps/calendar', 3);
