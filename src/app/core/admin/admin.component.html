@@ -68,12 +68,16 @@
   <div class="main-container" #scrollContainer>
     <div #row class="row">
       <div #col4 class="col-md-4" style="height: 100%;display: none;z-index: 6000;background-color: #272b35;">
-        <p style="color:#a6a8ad;height: 100%;padding-bottom: 100%;margin-bottom: 100%">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div style="color:#a6a8ad;height: 100%;padding-bottom: 100%;margin-bottom: 100%">
+          <ul>
+            <li *ngFor="let item of subItems">
+              {{item.name}}
+              <ul>
+                <li *ngFor="let item2 of item.subItems">{{item2.name}}</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
       <div #col8 style="padding: 0px;" class="col-md-8">
         <router-outlet (activate)="onActivate($event, scrollContainer)"></router-outlet>    
