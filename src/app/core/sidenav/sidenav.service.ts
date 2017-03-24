@@ -36,9 +36,9 @@ export class SidenavService {
     let storeConfigurations_sub = menu.addSubItem(stores,'Store Configurstions','#',1);
     menu.addSubItem(storeConfigurations_sub,'Payment Methods','#',1);
     menu.addSubItem(storeConfigurations_sub,'Shipping Methods','#',2);
-    menu.addSubItem(storeConfigurations_sub,'Taxes','#',1);
+    menu.addSubItem(storeConfigurations_sub,'Taxes','#',3);
 
-    let stores_sub = menu.addSubItem(stores,'Stores','#',1);
+    let stores_sub = menu.addSubItem(stores,'Stores','#',2);
     menu.addSubItem(stores_sub,'Store A(POS)','#',1);
     menu.addSubItem(stores_sub,'Store A(Call Center)','#',2);
     menu.addSubItem(stores_sub,'Store A(Facebook)','#',3);

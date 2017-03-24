@@ -67,16 +67,44 @@
 
   <div class="main-container" #scrollContainer>
     <div #row class="row">
-      <div #col4 class="col-md-4" style="height: 100%;display: none;z-index: 6000;background-color: #272b35;">
+      <div #col4 class="col-md-4" style="height: 1000px;display: none;z-index: 6000;background-color: #272b35;">
         <div style="color:#a6a8ad;height: 100%;padding-bottom: 100%;margin-bottom: 100%">
-          <ul>
-            <li *ngFor="let item of subItems">
+          <div class="row" style="height: 100%">
+            <div class="col-md-6">
+              <div *ngFor="let item of subItems">
+                <span *ngIf="item.position%2 == 0">
+                  <h1>{{item.name}}</h1>
+                  <div *ngFor="let subitem of item.subItems">
+                    <span>{{subitem.name}}</span>
+                    <div *ngFor="let subsubitem of subitem.subItems">
+                      <span>{{subsubitem.name}}</span>  
+                    </div>  
+                  </div>
+                </span>
+                    
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div *ngFor="let item of subItems">
+                <span *ngIf="item.position%2 != 0">
+                  <h1>{{item.name}}</h1>
+                  <div *ngFor="let subitem of item.subItems">
+                    <span *ngIf="subitem.parent == item">{{subitem.name}}</span> 
+                    <div *ngFor="let subsubitem of subitem.subItems">
+                      <span>{{subsubitem.name}}</span>  
+                    </div> 
+                  </div>
+                </span>  
+              </div>
+            </div>
+          </div>
+            <!-- <li *ngFor="let item of subItems">
               {{item.name}}
               <ul>
                 <li *ngFor="let item2 of item.subItems">{{item2.name}}</li>
               </ul>
-            </li>
-          </ul>
+            </li> -->
+          
         </div>
       </div>
       <div #col8 style="padding: 0px;" class="col-md-8">
