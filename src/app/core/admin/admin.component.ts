@@ -60,30 +60,22 @@ export class AdminComponent implements OnInit {
       this.sidenavOpen = !isMobile;
     });
 
-    $(this.row.nativeElement).removeClass('row');
-    $(this.col8.nativeElement).removeClass('col-md-8');
-    $(this.col4.nativeElement).removeClass('col-md-4').hide();
+    this.removeGridClasses();
+
+    console.log(this.getContentHeight());
     
-     this.sidenavService.navItemEmitter.subscribe((data)=>{
-        this.item = data;
-        this.subItems = data.subItems;
-        console.log(this.subItems);
-      })
+    this.sidenavService.navItemEmitter.subscribe((data)=>{
+      this.item = data;
+      this.subItems = data.subItems;
+    })
    
 
     this.sidenavService.hoverEventEmitter.subscribe((data)=>{
+      console.log(this.getContentHeight());
       if(data == "mouseover"){
-
-        console.log("mouse over called");
-        $(this.row.nativeElement).addClass('row');
-        $(this.col4.nativeElement).addClass('col-md-4').show("slide");
-        $(this.col8.nativeElement).hide().addClass("col-md-8").show(600);
+        this.openSideNav();
       }else if(data == "mouseleave"){
-        console.log("mouse leave called");
-        // $(this.col8.nativeElement).css('margin-left','0px');
-        $(this.col8.nativeElement).show(400).removeClass("col-md-8");
-        $(this.col4.nativeElement).hide().removeClass('col-md-4');
-        $(this.row.nativeElement).show(400).removeClass('row');
+        this.closeSideNav();
       }
     })
 
@@ -92,6 +84,39 @@ export class AdminComponent implements OnInit {
         this.sidenav.close();
       }
     });
+  }
+
+  getContentHeight(){
+    var contentHeight = 0;
+    if(this.item != null){
+      if(this.item.subItems.length > 0){
+        contentHeight = contentHeight + this.item.subItems.length * (19 + 16);
+        for (let subitem of this.item.subItems) {
+          if(subitem.subItems.length > 0){ 
+           contentHeight = contentHeight + subitem.subItems.length * (21 + 16); 
+           for( let subsubitem of subitem.subItems){
+             if(subsubitem.subItems.length > 0){
+               contentHeight = contentHeight + subsubitem.subItems.length * (21 + 16);
+             }
+           } 
+          }
+        }
+      }  
+    }
+    return contentHeight;
+  }
+
+  removeGridClasses(){
+    $(this.row.nativeElement).removeClass('row');
+    $(this.col8.nativeElement).removeClass('col-md-8');
+    $(this.col4.nativeElement).removeClass('col-md-4').hide();
+  }
+
+  openSideNav(){
+    $(this.row.nativeElement).addClass('row');
+    $(this.col4.nativeElement).addClass('col-md-4').show("slide");
+    $(this.col8.nativeElement).hide().addClass("col-md-8").show(600);
+    // this.sidenavService.navMenuOpen();
   }
 
   closeSideNav(){

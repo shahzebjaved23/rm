@@ -43,10 +43,10 @@ export class SidenavItemComponent implements OnInit {
     this.sidenavService.sendItem(this.item);
     if(this.isMenuOpen){
       this.sidenavService.hoverEvent("mouseleave");
-      this.isMenuOpen = false;  
+      // this.isMenuOpen = false;  
     }else{
       this.sidenavService.hoverEvent("mouseover");
-      this.isMenuOpen = true; 
+      // this.isMenuOpen = true; 
     }
   }
 
