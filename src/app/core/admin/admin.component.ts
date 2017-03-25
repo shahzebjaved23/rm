@@ -62,7 +62,9 @@ export class AdminComponent implements OnInit {
 
     this.removeGridClasses();
 
-    console.log(this.getContentHeight());
+    console.log($(window).height());
+
+    console.log(this.getItemHeight(this.item));
     
     this.sidenavService.navItemEmitter.subscribe((data)=>{
       this.item = data;
@@ -71,7 +73,7 @@ export class AdminComponent implements OnInit {
    
 
     this.sidenavService.hoverEventEmitter.subscribe((data)=>{
-      console.log(this.getContentHeight());
+      console.log(this.getItemHeight(this.item));
       if(data == "mouseover"){
         this.openSideNav();
       }else if(data == "mouseleave"){
@@ -86,12 +88,36 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  getContentHeight(){
+  createMarkup(){
+    var rowDiv = $("<div></div>");
+    var oneColumn = false;
+    var twoColumn = false;
+    var threeColumn = false;
+
+    var breakItemOne = null;
+    var breakItemTwo = null;
+    var breakItemThree = null;
+
+    var wholeItemWidth = this.getItemHeight(this.item);
+
+    // run the loop and calculate the variables
+    for(let item in this.item.subItems){
+
+    }
+
+    // after the loop is run, generate the content using the variables
+  }
+
+  getWindowHeight(){
+    return $(window).height();
+  }
+
+  getItemHeight(item: SidenavItem){
     var contentHeight = 0;
-    if(this.item != null){
-      if(this.item.subItems.length > 0){
-        contentHeight = contentHeight + this.item.subItems.length * (19 + 16);
-        for (let subitem of this.item.subItems) {
+    if(item != null){
+      if(item.subItems.length > 0){
+        contentHeight = contentHeight + item.subItems.length * (19 + 16);
+        for (let subitem of item.subItems) {
           if(subitem.subItems.length > 0){ 
            contentHeight = contentHeight + subitem.subItems.length * (21 + 16); 
            for( let subsubitem of subitem.subItems){
