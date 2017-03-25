@@ -70,41 +70,48 @@
       <div #col4 class="col-md-4" style="height: 1000px;display: none;z-index: 6000;background-color: #272b35;">
         <div style="color:#a6a8ad;height: 100%;padding-bottom: 100%;margin-bottom: 100%">
           <div class="row" style="height: 100%; padding: 20px;">
-            <h1 style="padding-left: 15px">{{item?.name}}</h1>
-            <div class="col-sm-6 col-xs-6">
-              <div *ngFor="let item of subItems">
-                <span *ngIf="item.position%2 != 0">
-                  <h4>{{item.name}}</h4>
-                  <div *ngFor="let subitem of item.subItems">
-                    <span><p>{{subitem.name}}</p></span>
-                    <div *ngFor="let subsubitem of subitem.subItems">
-                      <span><p>{{subsubitem.name}}</p></span>  
-                    </div>  
-                  </div>
+
+            <div class="row">
+              <div class="col-sm-6 col-xs-6">
+                <h1 style="padding-left: 15px">{{item?.name}}</h1>
+              </div>
+              <div class="col-sm-6 col-xs-6">
+                <span style="position: relative;top:100%;left: 60%;cursor: pointer;"> 
+                  <md-icon (click)="closeSideNav()" class="icon-sidenav-toggle fade-in-on-icon-sidenav">chevron_left
+                  </md-icon>
                 </span>
-              </div>
+              </div>  
             </div>
-            <div class="col-sm-6 col-xs-6">
-              <div *ngFor="let item of subItems">
-                <span *ngIf="item.position%2 == 0">
-                  <h4>{{item.name}}</h4>
-                  <div *ngFor="let subitem of item.subItems">
-                    <span><p>{{subitem.name}}</p></span> 
-                    <div *ngFor="let subsubitem of subitem.subItems">
-                      <span><p>{{subsubitem.name}}</p></span>  
-                    </div> 
-                  </div>
-                </span>  
+
+            <div class="row">
+              <div class="col-sm-6 col-xs-6">
+                <div *ngFor="let item of subItems">
+                  <span *ngIf="item.position%2 != 0">
+                    <h4>{{item.name}}</h4>
+                    <div *ngFor="let subitem of item.subItems">
+                      <span><p>{{subitem.name}}</p></span>
+                      <div *ngFor="let subsubitem of subitem.subItems">
+                        <span><p>{{subsubitem.name}}</p></span>  
+                      </div>  
+                    </div>
+                  </span>
+                </div>
               </div>
+              <div class="col-sm-6 col-xs-6">
+                <div *ngFor="let item of subItems">
+                  <span *ngIf="item.position%2 == 0">
+                    <h4>{{item.name}}</h4>
+                    <div *ngFor="let subitem of item.subItems">
+                      <span><p>{{subitem.name}}</p></span> 
+                      <div *ngFor="let subsubitem of subitem.subItems">
+                        <span><p>{{subsubitem.name}}</p></span>  
+                      </div> 
+                    </div>
+                  </span>  
+                </div>
+              </div>  
             </div>
           </div>
-            <!-- <li *ngFor="let item of subItems">
-              {{item.name}}
-              <ul>
-                <li *ngFor="let item2 of item.subItems">{{item2.name}}</li>
-              </ul>
-            </li> -->
-          
         </div>
       </div>
       <div #col8 style="padding: 0px;" class="col-md-8">

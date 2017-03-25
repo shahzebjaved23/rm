@@ -1,21 +1,30 @@
 <div>
 	<img class="img img-responsive" width="300px" style="margin:auto;" src="assets/img/rm/My-Beauty-logo.png" alt=""/>
 
-	<form (ngSubmit)="onSubmit(user)" class="form-home" style="text-align: center;width: 300px;margin:auto; " action="#" method="get" accept-charset="utf-8">
+	<form (ngSubmit)="onSubmit(user)" class="form-home" style="text-align: center;width: 300px;margin:50px auto; " action="#" method="get" accept-charset="utf-8">
 
-		<label for="">username/email</label>
-		<input style="border-radius: 20px;" type="email"/>
+		<div style="margin-top: 10px">
+			<label style="margin-right: 20px;" for="">username/email</label>
+			<input style="border-radius: 10px;height:30px" type="email"/>
+		</div>
 		
-		<label style="margin-right: 45px;">password</label>	
-		<input style="border-radius: 20px;"  type="password"/>
 		
-		<label>remember me</label>
-		<input type="checkbox"/>
+		<div style="margin-top: 10px">
+			<label style="margin-right: 40px;margin-left: 25px;">password</label>	
+			<input style="border-radius: 10px;height:30px"  type="password"/>	
+		</div>
 		
-		<input style="margin-left: 95px" type="submit" value="Login" class="btn btn-danger"/>
-		<p>
-			<a href="">forgot login details</a>
-		</p>	
+		
+		<div style="margin-top: 10px">
+			<label>remember me</label>
+			<input type="checkbox"/>
+			
+			<input style="margin-left: 95px" type="submit" value="Login" class="btn btn-danger"/>
+			<p style="margin-left: 150px">
+				<a href="">forgot login details</a>
+			</p>	
+		</div>
+			
 		
 	</form>
 

@@ -94,6 +94,12 @@ export class AdminComponent implements OnInit {
     });
   }
 
+  closeSideNav(){
+    $(this.col8.nativeElement).show(400).removeClass("col-md-8");
+    $(this.col4.nativeElement).hide().removeClass('col-md-4');
+    $(this.row.nativeElement).show(400).removeClass('row');
+  }
+
   toggleFullscreen() {
     if (screenfull.enabled) {
       screenfull.toggle();
