@@ -22,7 +22,7 @@ export class AdminComponent implements OnInit {
   @ViewChild('col4') col4;
   @ViewChild('col8') col8;
 
-  public items: SidenavItem;
+  public item: SidenavItem;
   public subItems: SidenavItem[];
   
   
@@ -65,7 +65,7 @@ export class AdminComponent implements OnInit {
     $(this.col4.nativeElement).removeClass('col-md-4').hide();
     
      this.sidenavService.navItemEmitter.subscribe((data)=>{
-        this.items = data;
+        this.item = data;
         this.subItems = data.subItems;
         console.log(this.subItems);
       })
