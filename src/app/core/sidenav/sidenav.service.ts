@@ -24,15 +24,15 @@ export class SidenavService {
 
     // let dashboard = menu.addItem('Dashboard', 'dashboard', '/', 1);
 
-    let dashboard = menu.addItem('Dashboard',"assets/img/rm/dashboard.png", 'chat', '/apps/inbox', 1, '22', '#7986CC');
+    let dashboard = menu.addItem('Dashboard',"assets/img/rm/dashboard.png", 'chat', 'admin/apps/inbox', 1, '22', '#7986CC');
     
-    let admin = menu.addItem('Admin', "assets/img/rm/system-administration.png",'chat', '/apps/chat', 2, '14', '#E15C74');
+    let admin = menu.addItem('Admin', "assets/img/rm/system-administration.png",'chat', 'admin/apps/chat', 2, '14', '#E15C74');
     menu.addSubItem(admin,'Company Profile','#',1);
     menu.addSubItem(admin,'Subscriptions and Billing','#',2);
     menu.addSubItem(admin,'Users and Permissions','#',3);
     menu.addSubItem(admin,'System Settings','#',4);
 
-    let stores = menu.addItem('Stores', "assets/img/rm/stores.png",'date_range', '/apps/calendar', 3);
+    let stores = menu.addItem('Stores', "assets/img/rm/stores.png",'date_range', 'admin/apps/calendar', 3);
     let storeConfigurations_sub = menu.addSubItem(stores,'Store Configurstions','#',1);
     menu.addSubItem(storeConfigurations_sub,'Payment Methods','#',1);
     menu.addSubItem(storeConfigurations_sub,'Shipping Methods','#',2);
@@ -47,7 +47,7 @@ export class SidenavService {
     menu.addSubItem(stores_sub,'Store A(Reseller)','#',6);
     menu.addSubItem(stores_sub,'Store A(Lazada)','#',7);
 
-    let product = menu.addItem('Product', "assets/img/rm/product-and-pricing.png",'date_range', '/apps/calendar', 3);
+    let product = menu.addItem('Product', "assets/img/rm/product-and-pricing.png",'date_range', 'admin/apps/calendar', 3);
     menu.addSubItem(product,'Categories','#',1);
     menu.addSubItem(product,'Products','#',2);
     menu.addSubItem(product,'Product Attributes','#',3);
@@ -60,7 +60,7 @@ export class SidenavService {
 
 
 
-    let inventory = menu.addItem('Inventory', "assets/img/rm/inventory.png",'date_range', '/apps/calendar', 3);
+    let inventory = menu.addItem('Inventory', "assets/img/rm/inventory.png",'date_range', 'admin/apps/calendar', 3);
     let inventory_sub = menu.addSubItem(inventory,'Inventory','#',1);
     menu.addSubItem(inventory_sub,'Configuration','#',1);
     menu.addSubItem(inventory_sub,'Wharehouses','#',2);
@@ -105,9 +105,26 @@ export class SidenavService {
     menu.addSubItem(channels,'MarketPlaces','#',4);
 
     let finance = menu.addItem('Finance', "assets/img/rm/finance-and-accounting.png",'date_range', '/apps/calendar', 3);
-    let reports = menu.addItem('Reports', "assets/img/rm/reporting-analysis.png",'date_range', '/apps/calendar', 3);
-    let settings = menu.addItem('Settings', "assets/img/rm/system-settings.png",'date_range', '/apps/calendar', 3);
+    
+    let payment_validation_sub = menu.addSubItem(finance,'Payment Validation','#',1);
+    menu.addSubItem(payment_validation_sub,'Validate Online Payments','#',1);
+    menu.addSubItem(payment_validation_sub,'Validate Bank Payments','#',2);
+    
+    let accouting_sub = menu.addSubItem(finance,'Payment Validation','#',2);
+    menu.addSubItem(accouting_sub,'Card Settlements','#',1);
+    menu.addSubItem(accouting_sub,'iPay88 settlements','#',2);
+    menu.addSubItem(accouting_sub,'FPX Settlements','#',3);
+    menu.addSubItem(accouting_sub,'Enter bills and expenses','#',4);
+    menu.addSubItem(accouting_sub,'Match payments and expenses','#',5);
+    menu.addSubItem(accouting_sub,'Upload credit memos','#',6);
 
+    let reports = menu.addItem('Reports', "assets/img/rm/reporting-analysis.png",'date_range', '/apps/calendar', 3);
+    menu.addSubItem(reports,'Reports','#',1);
+    menu.addSubItem(reports,'Analytics','#',2);
+
+    let settings = menu.addItem('Settings', "assets/img/rm/system-settings.png",'date_range', '/apps/calendar', 3);
+    menu.addSubItem(settings,'Register Apis','#',1);
+    menu.addSubItem(settings,'Subscribers, admin users and permissions','#',2);
     // let components =  menu.addItem('Product', 'layers', null, 3);
     // menu.addSubItem(components, 'Autocomplete', '/components/autocomplete', 1);
     // menu.addSubItem(components, 'Buttons', '/components/buttons', 2);
