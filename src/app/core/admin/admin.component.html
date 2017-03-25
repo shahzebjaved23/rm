@@ -72,7 +72,7 @@
           <div class="row" style="height: 100%">
             <div class="col-md-6">
               <div *ngFor="let item of subItems">
-                <span *ngIf="item.position%2 == 0">
+                <span *ngIf="item.position%2 != 0">
                   <h1>{{item.name}}</h1>
                   <div *ngFor="let subitem of item.subItems">
                     <span>{{subitem.name}}</span>
@@ -86,7 +86,7 @@
             </div>
             <div class="col-md-6">
               <div *ngFor="let item of subItems">
-                <span *ngIf="item.position%2 != 0">
+                <span *ngIf="item.position%2 == 0">
                   <h1>{{item.name}}</h1>
                   <div *ngFor="let subitem of item.subItems">
                     <span *ngIf="subitem.parent == item">{{subitem.name}}</span> 
