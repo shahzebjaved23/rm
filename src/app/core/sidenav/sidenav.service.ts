@@ -8,6 +8,7 @@ export class SidenavService {
 
   public hoverEventEmitter = new EventEmitter<string>();
   public navItemEmitter = new EventEmitter<SidenavItem>();
+  public navMenuState = new EventEmitter<string>();
 
   private _itemsSubject: BehaviorSubject<SidenavItem[]> = new BehaviorSubject<SidenavItem[]>([]);
   private _items: SidenavItem[] = [ ];
@@ -176,6 +177,14 @@ export class SidenavService {
 
   sendItem(item:SidenavItem){
     this.navItemEmitter.emit(item);
+  }
+
+  navMenuOpen(){
+    this.navMenuState.emit("open");
+  }
+
+  navMenuClose(){
+    this.navMenuState.emit("close");
   }
 
   addItem(name: string, image: string ,icon: string, route: string, position: number, badge?: string, badgeColor?: string) {

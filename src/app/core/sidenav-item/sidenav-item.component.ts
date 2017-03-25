@@ -30,6 +30,13 @@ export class SidenavItemComponent implements OnInit {
   constructor(private sidenavService: SidenavService){}
 
   ngOnInit() {
+    this.sidenavService.navMenuState.subscribe((state)=>{
+      if(state == 'open'){
+        this.isMenuOpen = true;
+      }else if(state == 'close'){
+        this.isMenuOpen = false;
+      }
+    })
   }
 
   onHover(e){

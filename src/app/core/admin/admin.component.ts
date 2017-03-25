@@ -98,6 +98,7 @@ export class AdminComponent implements OnInit {
     $(this.col8.nativeElement).show(400).removeClass("col-md-8");
     $(this.col4.nativeElement).hide().removeClass('col-md-4');
     $(this.row.nativeElement).show(400).removeClass('row');
+    this.sidenavService.navMenuClose();
   }
 
   toggleFullscreen() {
