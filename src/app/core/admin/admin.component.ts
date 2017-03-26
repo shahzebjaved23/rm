@@ -19,8 +19,8 @@ export class AdminComponent implements OnInit {
   @ViewChild('scrollContainer') scrollContainer;
   @ViewChild('sidenavContainer') sidenavContainer;
   @ViewChild('row') row;
-  @ViewChild('col4') col4;
-  @ViewChild('col8') col8;
+  @ViewChild('col4') sideNavColumn;
+  @ViewChild('col8') mainColumn;
   @ViewChild('rowDiv') rowDiv;
 
   public item: SidenavItem;
@@ -62,11 +62,10 @@ export class AdminComponent implements OnInit {
     });
 
     this.removeGridClasses();
+    $(this.sideNavColumn.nativeElement).removeClass("col-md-2");
+    $(this.mainColumn.nativeElement).removeClass('col-md-10');
 
-    console.log($(window).height());
-
-
-    console.log(this.getItemHeight(this.item));
+   
     
     this.sidenavService.navItemEmitter.subscribe((data)=>{
       this.item = data;
@@ -75,7 +74,6 @@ export class AdminComponent implements OnInit {
    
 
     this.sidenavService.hoverEventEmitter.subscribe((data)=>{
-      console.log(this.getItemHeight(this.item));
       if(data == "mouseover"){
         this.openSideNav();
       }else if(data == "mouseleave"){
@@ -105,29 +103,19 @@ export class AdminComponent implements OnInit {
     var contentHeight2 = 0;
 
     if(this.getItemHeight(this.item) < this.getWindowHeight()){
-      console.log("item height = " + this.getItemHeight(this.item));
       oneColumn = true;
     }
 
-    console.log("item height = " + this.getItemHeight(this.item));
-    for(let item of this.item.subItems){
-      console.log("window height "+this.getWindowHeight());
-      console.log("subitem height = " + this.getItemHeight(item));
-    }
 
     // run the loop and calculate the variables
     for(let item of this.item.subItems){
       contentHeight1 = contentHeight1 + this.getSubItemHeight(item);
-      console.log("contentHeight1 = " + contentHeight1);
       if(contentHeight1 > this.getWindowHeight()){
         twoColumn = true;
         oneColumn = false;
-        console.log("twoColumn =" + twoColumn + " oneColumn = "+ oneColumn);
         breakItemTwo = item;
-        console.log(breakItemTwo);
         for(let subitem of item.subItems){
           contentHeight2 = contentHeight2 + this.getSubItemHeight(subitem);
-          console.log(contentHeight2);
           if(contentHeight2 > this.getWindowHeight()){
             threeColumn = true;
             twoColumn = false;
@@ -140,28 +128,56 @@ export class AdminComponent implements OnInit {
     // after the loop is run, generate the content using the variables
     rowDiv.html("");
     if(oneColumn == true){
-      var columnDiv = $("<div class='col-md-12' style='margin-left:30px;'></div>")
+      $(this.row.nativeElement).addClass('row');
+      $(this.sideNavColumn.nativeElement).addClass('col-md-2').show("slide");
+      $(this.mainColumn.nativeElement).hide().addClass("col-md-10").show(600);
+      var columnDiv = $("<div class='col-md-12'></div>")
       var content = "";
       for(let item of this.item.subItems){
         content = content + "<h4>"+item.name+"</h4>"
         if(item.subItems.length > 0){
           for(let subitem of item.subItems){
-            console.log(subitem)
             content = content + "<p>"+subitem.name+"</p>"
           }
         }
       }
       columnDiv.html(content);
-      console.log("twoColumn =" + twoColumn + " oneColumn = "+ oneColumn);
       rowDiv.html(columnDiv.html());
     }else if(twoColumn){
-      console.log("twoColumn =" + twoColumn + " oneColumn = "+ oneColumn);
-    }else if(threeColumn){
-      console.log("twoColumn =" + twoColumn + " oneColumn = "+ oneColumn);
-    }
+      // $(this.sideNavColumn.nativeElement).hide().removeClass("col-md-2").show("slide");
+      // $(this.mainColumn.nativeElement).removeClass('col-md-10');
+      var content1 = "";
+      var content2 = "";
+      var div1 = $("<div class='col-md-6 col-sm-6 col-xs-6'></div>");
+      var div2 = $("<div class='col-md-6 col-sm-6 col-xs-6'></div>");
 
-    console.log("twoColumn =" + twoColumn + " oneColumn = "+ oneColumn + " threeColumn = "+threeColumn);
-    
+      $(this.row.nativeElement).addClass('row');
+      $(this.sideNavColumn.nativeElement).addClass('col-md-4').show("slide");
+      $(this.mainColumn.nativeElement).hide().addClass("col-md-8").show(600);
+
+      for(let item of this.item.subItems){
+        if(item != breakItemTwo){
+          content1 = content1 + "<h4>"+item.name+"</h4>"
+          if(item.subItems.length > 0){
+            for(let subitem of item.subItems){
+              content1 = content1 + "<p>"+subitem.name+"</p>"
+            }
+          }  
+        }else{
+          content2 = content2 + "<h4>"+item.name+"</h4>"
+          if(item.subItems.length > 0){
+            for(let subitem of item.subItems){
+              content2 = content2 + "<p>"+subitem.name+"</p>"
+            }
+          }
+        }
+      }
+      div1.html(content1);
+      div2.html(content2);
+      rowDiv.html("").append(div1).append(div2);
+    }else if(threeColumn){
+      
+    }    
   }
 
   getWindowHeight(){
@@ -211,21 +227,21 @@ export class AdminComponent implements OnInit {
 
   removeGridClasses(){
     $(this.row.nativeElement).removeClass('row');
-    $(this.col8.nativeElement).removeClass('col-md-8');
-    $(this.col4.nativeElement).removeClass('col-md-4').hide();
+    $(this.mainColumn.nativeElement).removeClass('col-md-8 col-md-10');
+    $(this.sideNavColumn.nativeElement).removeClass('col-md-4 col-md-2').hide();
   }
 
   openSideNav(){
     $(this.row.nativeElement).addClass('row');
-    $(this.col4.nativeElement).addClass('col-md-4').show("slide");
-    $(this.col8.nativeElement).hide().addClass("col-md-8").show(600);
+    // $(this.sideNavColumn.nativeElement).addClass('col-md-4').show("slide");
+    // $(this.mainColumn.nativeElement).hide().addClass("col-md-8").show(600);
     this.sidenavService.navMenuOpen();
     this.createMarkup();
   }
 
   closeSideNav(){
-    $(this.col8.nativeElement).show(400).removeClass("col-md-8");
-    $(this.col4.nativeElement).hide().removeClass('col-md-4');
+    $(this.mainColumn.nativeElement).show(400).removeClass("col-md-8 col-md-10");
+    $(this.sideNavColumn.nativeElement).hide().removeClass('col-md-4 col-md-2');
     $(this.row.nativeElement).show(400).removeClass('row');
     this.sidenavService.navMenuClose();
   }
