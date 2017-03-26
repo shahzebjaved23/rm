@@ -73,7 +73,7 @@
 
             <div class="row">
               <div class="col-sm-6 col-xs-6">
-                <h1 style="padding-left: 15px">{{item?.name}}</h1>
+                <h1 style="padding-left: 15px;color:white">{{item?.name}}</h1>
               </div>
               <div class="col-sm-6 col-xs-6">
                 <span> 
@@ -84,32 +84,6 @@
             </div>
 
             <div #rowDiv class="row" style="margin-left: 15px">
-              <!-- <div class="col-sm-6 col-xs-6">
-                <div *ngFor="let item of subItems">
-                  <span *ngIf="item.position%2 != 0">
-                    <h4>{{item.name}}</h4>
-                    <div *ngFor="let subitem of item.subItems">
-                      <span><p>{{subitem.name}}</p></span>
-                      <div *ngFor="let subsubitem of subitem.subItems">
-                        <span><p>{{subsubitem.name}}</p></span>  
-                      </div>  
-                    </div>
-                  </span>
-                </div>
-              </div>
-              <div class="col-sm-6 col-xs-6">
-                <div *ngFor="let item of subItems">
-                  <span *ngIf="item.position%2 == 0">
-                    <h4>{{item.name}}</h4>
-                    <div *ngFor="let subitem of item.subItems">
-                      <span><p>{{subitem.name}}</p></span> 
-                      <div *ngFor="let subsubitem of subitem.subItems">
-                        <span><p>{{subsubitem.name}}</p></span>  
-                      </div> 
-                    </div>
-                  </span>  
-                </div>
-              </div>   -->
             </div>
           </div>
         </div>

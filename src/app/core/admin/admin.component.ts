@@ -135,10 +135,10 @@ export class AdminComponent implements OnInit {
       var columnDiv = $("<div class='col-md-12'></div>")
       var content = "";
       for(let item of this.item.subItems){
-        content = content + "<h4>"+item.name+"</h4>"
+        content = content + "<h4 style='color:#a79d95'>"+item.name+"</h4>"
         if(item.subItems.length > 0){
           for(let subitem of item.subItems){
-            content = content + "<p>"+subitem.name+"</p>"
+            content = content + "<p style='color:white'>"+subitem.name+"</p>"
           }
         }
       }
@@ -156,17 +156,17 @@ export class AdminComponent implements OnInit {
 
       for(let item of this.item.subItems){
         if(item != breakItemTwo){
-          content1 = content1 + "<h4>"+item.name+"</h4>"
+          content1 = content1 + "<h4 style='color:#a79d95'>"+item.name+"</h4>"
           if(item.subItems.length > 0){
             for(let subitem of item.subItems){
-              content1 = content1 + "<p>"+subitem.name+"</p>"
+              content1 = content1 + "<p style='color:white'>"+subitem.name+"</p>"
             }
           }  
         }else{
-          content2 = content2 + "<h4>"+item.name+"</h4>"
+          content2 = content2 + "<h4 style='color:#a79d95'>"+item.name+"</h4>"
           if(item.subItems.length > 0){
             for(let subitem of item.subItems){
-              content2 = content2 + "<p>"+subitem.name+"</p>"
+              content2 = content2 + "<p style='color:white'>"+subitem.name+"</p>"
             }
           }
         }
