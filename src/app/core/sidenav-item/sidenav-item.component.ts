@@ -19,6 +19,7 @@ export class SidenavItemComponent implements OnInit {
   @ViewChild('sliding') sliding;
   @ViewChild('listItem') listItem;
   @ViewChild("img") img;
+  @ViewChild("textSpan") textSpan;
 
 
   @HostBinding('class.open')
@@ -32,11 +33,13 @@ export class SidenavItemComponent implements OnInit {
 
   ngOnInit() {
     $(this.img.nativeElement).removeClass("img-colored").addClass("img-greyscale");
+    $(this.textSpan.nativeElement).css("color","#aaa6a0");
     this.sidenavService.navMenuState.subscribe((state)=>{
       if(state == 'open'){
         this.isMenuOpen = true;
       }else if(state == 'close'){
         this.isMenuOpen = false;
+        $(this.textSpan.nativeElement).css("color","#aaa6a0");
       }
     })
 
@@ -52,6 +55,7 @@ export class SidenavItemComponent implements OnInit {
   onHover(e){
     this.sidenavService.sendItem(this.item);
     $(this.img.nativeElement).removeClass("img-greyscale").addClass("img-colored");
+    $(this.textSpan.nativeElement).css("color","white");
     if(this.isMenuOpen){
       this.sidenavService.hoverEvent("mouseleave");
       // this.isMenuOpen = false;  

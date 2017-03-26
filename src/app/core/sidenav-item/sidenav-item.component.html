@@ -18,12 +18,12 @@
 
 <a class="sidenav-anchor"
    (click)="onHover()"
-   style="height: 60px;margin: auto;background-color: #373330;color: white;"
+   style="height: 60px;margin: auto;background-color: #373330;"
    #listItem
    md-list-item md-ripple
    >
 
-  <span class="sidenav-item-name fade-in-on-icon-sidenav" style="text-align: center;margin:auto;width: 100%;">
+  <span #textSpan class="sidenav-item-name fade-in-on-icon-sidenav" style="text-align: center;margin:auto;width: 100%;">
     <img #img src="{{item.image}}" class="img img-responsive" style="align-self: center;margin: auto;display:block;" width="30px" height="30px" alt="">
       {{ item.name }}  
       
