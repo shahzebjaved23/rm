@@ -102,18 +102,18 @@ export class AdminComponent implements OnInit {
     var contentHeight1 = 0;
     var contentHeight2 = 0;
 
-    if(this.getItemHeight(this.item) < this.getWindowHeight()){
+    if(this.getItemHeight(this.item) < this.getWindowHeight() - 200){
       oneColumn = true;
     }
-
 
     // run the loop and calculate the variables
     for(let item of this.item.subItems){
       contentHeight1 = contentHeight1 + this.getSubItemHeight(item);
-      if(contentHeight1 > this.getWindowHeight()){
+      if(contentHeight1 > (this.getWindowHeight() - 200)){
         twoColumn = true;
         oneColumn = false;
         breakItemTwo = item;
+        console.log("one");
         for(let subitem of item.subItems){
           contentHeight2 = contentHeight2 + this.getSubItemHeight(subitem);
           if(contentHeight2 > this.getWindowHeight()){
@@ -127,6 +127,7 @@ export class AdminComponent implements OnInit {
 
     // after the loop is run, generate the content using the variables
     rowDiv.html("");
+    console.log("two");
     if(oneColumn == true){
       $(this.row.nativeElement).addClass('row');
       $(this.sideNavColumn.nativeElement).addClass('col-md-2').show("slide");
@@ -144,8 +145,6 @@ export class AdminComponent implements OnInit {
       columnDiv.html(content);
       rowDiv.html(columnDiv.html());
     }else if(twoColumn){
-      // $(this.sideNavColumn.nativeElement).hide().removeClass("col-md-2").show("slide");
-      // $(this.mainColumn.nativeElement).removeClass('col-md-10');
       var content1 = "";
       var content2 = "";
       var div1 = $("<div class='col-md-6 col-sm-6 col-xs-6'></div>");
