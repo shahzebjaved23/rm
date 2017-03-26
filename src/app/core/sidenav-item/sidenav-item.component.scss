@@ -223,7 +223,13 @@ md-nav-list a.sidenav-anchor {
   z-index: 200;
 }
 
+.img-colored{
+  filter: grayscale(0%);
+}
 
+.img-greyscale{
+  filter: grayscale(100%)
+}
 
 
 

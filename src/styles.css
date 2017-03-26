@@ -9,3 +9,13 @@ md-nav-list a.sidenav-anchor.mat-list-item .mat-list-item-content{
     padding-left: 0;
     padding-right: 0;
 }
+
+
+@font-face {
+  font-family: "Gotham";
+  src: url("/assets/GothamBlack/Gotham-Black.otf");
+}
+
+body{
+  font-family: "Gotham"
+}

@@ -18,6 +18,7 @@ export class SidenavItemComponent implements OnInit {
 
   @ViewChild('sliding') sliding;
   @ViewChild('listItem') listItem;
+  @ViewChild("img") img;
 
 
   @HostBinding('class.open')
@@ -30,6 +31,7 @@ export class SidenavItemComponent implements OnInit {
   constructor(private sidenavService: SidenavService){}
 
   ngOnInit() {
+    $(this.img.nativeElement).removeClass("img-colored").addClass("img-greyscale");
     this.sidenavService.navMenuState.subscribe((state)=>{
       if(state == 'open'){
         this.isMenuOpen = true;
@@ -37,10 +39,19 @@ export class SidenavItemComponent implements OnInit {
         this.isMenuOpen = false;
       }
     })
+
+    this.sidenavService.navMenuState.subscribe((state)=>{
+      if(state == "open"){
+
+      }else if(state == "close"){
+        $(this.img.nativeElement).removeClass("img-colored").addClass("img-greyscale");
+      }
+    })
   }
 
   onHover(e){
     this.sidenavService.sendItem(this.item);
+    $(this.img.nativeElement).removeClass("img-greyscale").addClass("img-colored");
     if(this.isMenuOpen){
       this.sidenavService.hoverEvent("mouseleave");
       // this.isMenuOpen = false;  

@@ -131,7 +131,7 @@ export class AdminComponent implements OnInit {
     if(oneColumn == true){
       $(this.row.nativeElement).addClass('row');
       $(this.sideNavColumn.nativeElement).addClass('col-md-2').show("slide");
-      $(this.mainColumn.nativeElement).hide().addClass("col-md-10").show(600);
+      $(this.mainColumn.nativeElement).hide().addClass("col-md-10").show(400);
       var columnDiv = $("<div class='col-md-12'></div>")
       var content = "";
       for(let item of this.item.subItems){
@@ -152,7 +152,7 @@ export class AdminComponent implements OnInit {
 
       $(this.row.nativeElement).addClass('row');
       $(this.sideNavColumn.nativeElement).addClass('col-md-4').show("slide");
-      $(this.mainColumn.nativeElement).hide().addClass("col-md-8").show(600);
+      $(this.mainColumn.nativeElement).hide().addClass("col-md-8").show(400);
 
       for(let item of this.item.subItems){
         if(item != breakItemTwo){
