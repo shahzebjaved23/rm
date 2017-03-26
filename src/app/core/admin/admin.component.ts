@@ -105,22 +105,28 @@ export class AdminComponent implements OnInit {
     var contentHeight2 = 0;
 
     if(this.getItemHeight(this.item) < this.getWindowHeight()){
+      console.log("item height = " + this.getItemHeight(this.item));
       oneColumn = true;
+    }
+
+    console.log("item height = " + this.getItemHeight(this.item));
+    for(let item of this.item.subItems){
+      console.log("window height "+this.getWindowHeight());
+      console.log("subitem height = " + this.getItemHeight(item));
     }
 
     // run the loop and calculate the variables
     for(let item of this.item.subItems){
-      contentHeight1 = contentHeight1 + this.getItemHeight(item);
+      contentHeight1 = contentHeight1 + this.getSubItemHeight(item);
       console.log("contentHeight1 = " + contentHeight1);
       if(contentHeight1 > this.getWindowHeight()){
         twoColumn = true;
         oneColumn = false;
-
-        console.log("twoColumn " + twoColumn + "oneColumn = "+ oneColumn);
+        console.log("twoColumn =" + twoColumn + " oneColumn = "+ oneColumn);
         breakItemTwo = item;
         console.log(breakItemTwo);
         for(let subitem of item.subItems){
-          contentHeight2 = contentHeight2 + this.getItemHeight(subitem);
+          contentHeight2 = contentHeight2 + this.getSubItemHeight(subitem);
           console.log(contentHeight2);
           if(contentHeight2 > this.getWindowHeight()){
             threeColumn = true;
@@ -145,19 +151,42 @@ export class AdminComponent implements OnInit {
           }
         }
       }
-      console.log(content);
       columnDiv.html(content);
+      console.log("twoColumn =" + twoColumn + " oneColumn = "+ oneColumn);
       rowDiv.html(columnDiv.html());
     }else if(twoColumn){
-
+      console.log("twoColumn =" + twoColumn + " oneColumn = "+ oneColumn);
     }else if(threeColumn){
-
+      console.log("twoColumn =" + twoColumn + " oneColumn = "+ oneColumn);
     }
+
+    console.log("twoColumn =" + twoColumn + " oneColumn = "+ oneColumn + " threeColumn = "+threeColumn);
     
   }
 
   getWindowHeight(){
     return $(window).height();
+  }
+
+  getSubItemHeight(item: SidenavItem){
+    var contentHeight = 0;
+    if(item != null){
+      contentHeight = contentHeight + (19 + 16); 
+      if(item.subItems.length > 0){
+        contentHeight = contentHeight + item.subItems.length * (21 + 16);
+        for (let subitem of item.subItems) {
+          if(subitem.subItems.length > 0){ 
+           contentHeight = contentHeight + subitem.subItems.length * (21 + 16); 
+           for( let subsubitem of subitem.subItems){
+             if(subsubitem.subItems.length > 0){
+               contentHeight = contentHeight + subsubitem.subItems.length * (21 + 16);
+             }
+           } 
+          }
+        }
+      }  
+    }
+    return contentHeight;
   }
 
   getItemHeight(item: SidenavItem){

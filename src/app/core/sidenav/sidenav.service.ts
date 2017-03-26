@@ -34,7 +34,7 @@ export class SidenavService {
     menu.addSubItem(admin,'System Settings','#',4);
 
     let stores = menu.addItem('Stores', "assets/img/rm/stores.png",'date_range', 'admin/apps/calendar', 3);
-    let storeConfigurations_sub = menu.addSubItem(stores,'Store Configurstions','#',1);
+    let storeConfigurations_sub = menu.addSubItem(stores,'Configurations','#',1);
     menu.addSubItem(storeConfigurations_sub,'Payment Methods','#',1);
     menu.addSubItem(storeConfigurations_sub,'Shipping Methods','#',2);
     menu.addSubItem(storeConfigurations_sub,'Taxes','#',3);
