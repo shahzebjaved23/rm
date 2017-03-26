@@ -21,6 +21,7 @@ export class AdminComponent implements OnInit {
   @ViewChild('row') row;
   @ViewChild('col4') col4;
   @ViewChild('col8') col8;
+  @ViewChild('rowDiv') rowDiv;
 
   public item: SidenavItem;
   public subItems: SidenavItem[];
@@ -64,6 +65,7 @@ export class AdminComponent implements OnInit {
 
     console.log($(window).height());
 
+
     console.log(this.getItemHeight(this.item));
     
     this.sidenavService.navItemEmitter.subscribe((data)=>{
@@ -89,7 +91,7 @@ export class AdminComponent implements OnInit {
   }
 
   createMarkup(){
-    var rowDiv = $("<div></div>");
+    var rowDiv = $(this.rowDiv.nativeElement);
     var oneColumn = false;
     var twoColumn = false;
     var threeColumn = false;
@@ -99,13 +101,59 @@ export class AdminComponent implements OnInit {
     var breakItemThree = null;
 
     var wholeItemWidth = this.getItemHeight(this.item);
+    var contentHeight1 = 0;
+    var contentHeight2 = 0;
+
+    if(this.getItemHeight(this.item) < this.getWindowHeight()){
+      oneColumn = true;
+    }
 
     // run the loop and calculate the variables
-    for(let item in this.item.subItems){
+    for(let item of this.item.subItems){
+      contentHeight1 = contentHeight1 + this.getItemHeight(item);
+      console.log("contentHeight1 = " + contentHeight1);
+      if(contentHeight1 > this.getWindowHeight()){
+        twoColumn = true;
+        oneColumn = false;
 
+        console.log("twoColumn " + twoColumn + "oneColumn = "+ oneColumn);
+        breakItemTwo = item;
+        console.log(breakItemTwo);
+        for(let subitem of item.subItems){
+          contentHeight2 = contentHeight2 + this.getItemHeight(subitem);
+          console.log(contentHeight2);
+          if(contentHeight2 > this.getWindowHeight()){
+            threeColumn = true;
+            twoColumn = false;
+            breakItemThree = subitem;
+          }
+        }
+      }
     }
 
     // after the loop is run, generate the content using the variables
+    rowDiv.html("");
+    if(oneColumn == true){
+      var columnDiv = $("<div class='col-md-12' style='margin-left:30px;'></div>")
+      var content = "";
+      for(let item of this.item.subItems){
+        content = content + "<h4>"+item.name+"</h4>"
+        if(item.subItems.length > 0){
+          for(let subitem of item.subItems){
+            console.log(subitem)
+            content = content + "<p>"+subitem.name+"</p>"
+          }
+        }
+      }
+      console.log(content);
+      columnDiv.html(content);
+      rowDiv.html(columnDiv.html());
+    }else if(twoColumn){
+
+    }else if(threeColumn){
+
+    }
+    
   }
 
   getWindowHeight(){
@@ -142,7 +190,8 @@ export class AdminComponent implements OnInit {
     $(this.row.nativeElement).addClass('row');
     $(this.col4.nativeElement).addClass('col-md-4').show("slide");
     $(this.col8.nativeElement).hide().addClass("col-md-8").show(600);
-    // this.sidenavService.navMenuOpen();
+    this.sidenavService.navMenuOpen();
+    this.createMarkup();
   }
 
   closeSideNav(){
