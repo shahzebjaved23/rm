@@ -116,7 +116,7 @@ export class AdminComponent implements OnInit {
         console.log("one");
         for(let subitem of item.subItems){
           contentHeight2 = contentHeight2 + this.getSubItemHeight(subitem);
-          if(contentHeight2 > this.getWindowHeight()){
+          if(contentHeight2 > this.getWindowHeight() - 200){
             threeColumn = true;
             twoColumn = false;
             breakItemThree = subitem;
@@ -143,7 +143,7 @@ export class AdminComponent implements OnInit {
         }
       }
       columnDiv.html(content);
-      rowDiv.html(columnDiv.html());
+      rowDiv.css("margin-left","15px").html(columnDiv.html());
     }else if(twoColumn){
       var content1 = "";
       var content2 = "";
@@ -173,7 +173,7 @@ export class AdminComponent implements OnInit {
       }
       div1.html(content1);
       div2.html(content2);
-      rowDiv.html("").append(div1).append(div2);
+      rowDiv.html("").css("margin-left","0px").append(div1).append(div2);
     }else if(threeColumn){
       
     }    
