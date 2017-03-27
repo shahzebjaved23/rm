@@ -221,6 +221,11 @@ md-nav-list a.sidenav-anchor {
   bottom: 0;
   left: 0;
   z-index: 200;
+}  
+
+.sidenav-anchor :hover{
+  filter: grayscale(0%);
+  color: white;
 }
 
 .img-colored{
