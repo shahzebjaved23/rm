@@ -6,13 +6,34 @@
 
   </md-sidenav>
 
+
+
+  <md-toolbar class="sidenav" align="start" style="width: 100px;float:left;background-color: #373330;" color="primary" class="sidenav-toolbar mat-elevation-z2">
+    <div fxLayout="row" style="width: 100%;">
+      <span style="width: 22px; text-align: center; margin-left: -3px;" fxFlexAlign="center"><img src="assets/img/icon.png" style="width: 25px; vertical-align: text-top;"></span>
+      <img style="height: 35px; margin-left: 24px; margin-bottom: -5px;" src="assets/img/logo.png" fxFlexAlign="center" class="fade-in-on-icon-sidenav">
+      <span fxFlex><!-- fill space --></span>
+      
+      <div fxHide="true" fxHide.gt-sm="false" fxFlexAlign="center">
+        <button md-icon-button (click)="toggleIconSidenav()">
+          <md-icon class="icon-sidenav-toggle fade-in-on-icon-sidenav">chevron_left</md-icon>
+        </button>
+      </div>
+    </div>
+  </md-toolbar>
+
+
+
+
   <md-sidenav class="sidenav" [opened]="sidenavOpen" align="start" [mode]="sidenavMode" msIconSidenav   #sidenav>
       <ms-sidenav></ms-sidenav>
     
   </md-sidenav> 
+
+  
   
     
-  <md-toolbar class="main-toolbar mat-elevation-z2">
+  <md-toolbar #mdToolbar class="main-toolbar mat-elevation-z2">
     <div fxHide="false" fxHide.gt-sm>
       <button (click)="sidenav.open()" md-icon-button>
         <md-icon>menu</md-icon>
@@ -88,8 +109,9 @@
           </div>
         </div>
       </div>
+    
       <div #col8 style="padding: 0px;" class="col-md-8">
-        <!-- <router-outlet (activate)="onActivate($event, scrollContainer)"></router-outlet>     -->
+        <router-outlet (activate)="onActivate($event, scrollContainer)"></router-outlet>    
       </div>
     </div>
   </div>

@@ -30,9 +30,14 @@ import {CalendarComponent} from "./demo/apps/calendar/calendar.component";
 import {ChatComponent} from "./demo/apps/chat/chat.component";
 import {AutocompleteComponent} from "./demo/components/autocomplete/autocomplete.component";
 import {HomeComponent} from "./home/home.component";
+import {MainComponent} from "./main/main.component";
 
 
 const routes: Routes = [
+  {
+    path: 'main',
+    component: MainComponent
+  },
   {
     path: 'login',
     component: LoginComponent

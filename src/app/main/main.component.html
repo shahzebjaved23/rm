@@ -1,0 +1,84 @@
+ 
+<div class="row">
+	<div class="col-md-1" style="padding-right: 0px">
+	  <md-toolbar class="sidenav" align="start" style="width: 100%;background-color: #373330;box-shadow: 0 3px 1px -2px black, 0 2px 2px 0 black, 0 1px 5px 0 black;" color="primary" class="sidenav-toolbar mat-elevation-z2">
+	    <div fxLayout="row" style="width: 100%;">
+	      <span style="width: 22px; text-align: center; margin-left: -3px;" fxFlexAlign="center"><img src="assets/img/icon.png" style="width: 25px; vertical-align: text-top;"></span>
+	      <img style="height: 35px; margin-left: 24px; margin-bottom: -5px;" src="assets/img/logo.png" fxFlexAlign="center" class="fade-in-on-icon-sidenav">
+	      <span fxFlex><!-- fill space --></span>
+	      
+	      <div fxHide="true" fxHide.gt-sm="false" fxFlexAlign="center">
+	        <button md-icon-button (click)="toggleIconSidenav()">
+	          <md-icon class="icon-sidenav-toggle fade-in-on-icon-sidenav">chevron_left</md-icon>
+	        </button>
+	      </div>
+	    </div>
+	  </md-toolbar>
+	  <md-sidenav class="sidenav" sty [opened]="sidenavOpen" align="start" [mode]="sidenavMode" msIconSidenav   #sidenav>
+	      <ms-sidenav></ms-sidenav>
+	  </md-sidenav> 
+	 
+
+	  	
+
+	</div>
+	<div class="col-md-11" style="padding-left: 0px">
+		<md-toolbar #mdToolbar class="main-toolbar mat-elevation-z2">
+	    <div fxHide="false" fxHide.gt-sm>
+	      <button (click)="sidenav.open()" md-icon-button>
+	        <md-icon>menu</md-icon>
+	      </button>
+	    </div>
+
+	    <ms-breadcrumbs fxHide="true" fxHide.gt-sm="false"></ms-breadcrumbs>
+
+	    <span fxFlex></span>
+
+	    <button fxHide="true" fxHide.gt-sm="false" md-button class="fullscreen-toggle" (click)="toggleFullscreen()">
+	      <md-icon *ngIf="!isFullscreen">fullscreen</md-icon>
+	      <md-icon *ngIf="isFullscreen">fullscreen_exit</md-icon>
+	    </button>
+
+	    <ms-search></ms-search>
+
+	    <button class="user-button" md-button [mdMenuTriggerFor]="menu">
+	      <div fxLayout="row" fxLayoutAlign="start center">
+	        <img src="assets/img/avatars/noavatar.png" class="avatar-flex"/>
+	        <span fxHide="true" fxHide.gt-sm="false" style="font-weight: 500; margin-left: 5px;">David Smith</span>
+	        <md-icon fxHide="true" fxHide.gt-sm="false">keyboard_arrow_down</md-icon>
+	      </div>
+	    </button>
+
+
+	    <button md-button class="quickpanel-toggle" (click)="quickpanel.open()">
+	      <md-icon>format_align_right</md-icon>
+	    </button>
+
+
+	    <md-menu class="user-menu" x-position="before" y-position="below" #menu="mdMenu">
+	      <button md-menu-item>
+	        <md-icon>account_circle</md-icon>
+	        <span>Profile</span>
+	      </button>
+	      <button md-menu-item>
+	        <md-icon>settings</md-icon>
+	        <span>Settings</span>
+	      </button>
+	      <button md-menu-item>
+	        <md-icon>help</md-icon>
+	        <span>Help</span>
+	      </button>
+	      <md-divider></md-divider>
+	      <button [routerLink]="['/login']" md-menu-item>
+	        <md-icon>exit_to_app</md-icon>
+	        <span>Logout</span>
+	      </button>
+	    </md-menu>
+	  </md-toolbar>
+
+	</div>
+</div>
+
+
+
+
