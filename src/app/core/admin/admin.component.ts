@@ -167,8 +167,10 @@ export class AdminComponent implements OnInit {
       var div2 = $("<div class='col-md-6 col-sm-6 col-xs-6'></div>");
 
       $(this.row.nativeElement).addClass('row');
-      $(this.sideNavColumn.nativeElement).addClass('col-md-4').show("slide");
+      $(this.sideNavColumn.nativeElement).addClass('col-md-4').show();
       $(this.mainColumn.nativeElement).hide().addClass("col-md-8").show(400);
+      $(this.sideTopBar.nativeElement).css("width","").css('width', (($(window).width() - 100)* 0.3333333333)+100+5).animate(400);
+      $(this.mainTopBar.nativeElement).hide().css("width","").css('width', $(window).width() - ((($(window).width() - 100)* 0.3333333333)+100+2)).show(400);
 
       for(let item of this.item.subItems){
         if(item != breakItemTwo){
