@@ -133,7 +133,7 @@ export class AdminComponent implements OnInit {
       $(this.sideNavColumn.nativeElement).addClass('col-md-2').show(); 
       $(this.mainColumn.nativeElement).hide().addClass("col-md-10").show(400);
       $(this.sideTopBar.nativeElement).css("width","").css('width', (($(window).width() - 100)* 0.1666666667)+100+2).animate(400);
-      $(this.mainTopBar.nativeElement).hide().css("width","").css('width', $(window).width() - ((($(window).width() - 100)* 0.1666666667)+100+2)).animate(400);
+      $(this.mainTopBar.nativeElement).css("width","").css('width', $(window).width() - ((($(window).width() - 100)* 0.1666666667)+100+2)).animate(400);
 
       var columnDiv = $("<div class='col-md-12'></div>")
       var content = "";
@@ -157,7 +157,7 @@ export class AdminComponent implements OnInit {
       $(this.sideNavColumn.nativeElement).addClass('col-md-4').show();
       $(this.mainColumn.nativeElement).hide().addClass("col-md-8").show(400);
       $(this.sideTopBar.nativeElement).css("width","").css('width', (($(window).width() - 100)* 0.3333333333)+100+5).animate(400);
-      $(this.mainTopBar.nativeElement).hide().css("width","").css('width', $(window).width() - ((($(window).width() - 100)* 0.3333333333)+100+2)).animate(400);
+      $(this.mainTopBar.nativeElement).css("width","").css('width', $(window).width() - ((($(window).width() - 100)* 0.3333333333)+100+2)).animate(400);
 
       for(let item of this.item.subItems){
         if(item != breakItemTwo){
@@ -248,7 +248,7 @@ export class AdminComponent implements OnInit {
     $(this.sideNavColumn.nativeElement).hide().removeClass('col-md-4 col-md-2');
     $(this.row.nativeElement).show(400).removeClass('row');
     $(this.sideTopBar.nativeElement).css("width","").css('width', "115px").animate(600);
-    $(this.mainTopBar.nativeElement).hide().css("width","").css('width', $(window).width() - 115).show(400);
+    $(this.mainTopBar.nativeElement).css("width","").css('width', $(window).width() - 115).animate(400);
     this.sidenavService.navMenuClose();
   }
 
