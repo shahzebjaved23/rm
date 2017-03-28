@@ -138,10 +138,10 @@ export class AdminComponent implements OnInit {
       // console.log("mainColumn main = "+$(this.mainColumn.nativeElement).width());
 
       $(this.row.nativeElement).addClass('row');
-      $(this.sideNavColumn.nativeElement).addClass('col-md-2').show("slide");
-      $(this.sideTopBar.nativeElement).css("width","").css('width', (($(window).width() - 100)* 0.1666666667)+100+2).animate(400);
-      $(this.mainTopBar.nativeElement).hide().css("width","").css('width', 1060).show(400);
+      $(this.sideNavColumn.nativeElement).addClass('col-md-2').show(); 
       $(this.mainColumn.nativeElement).hide().addClass("col-md-10").show(400);
+      $(this.sideTopBar.nativeElement).css("width","").css('width', (($(window).width() - 100)* 0.1666666667)+100+2).animate(400);
+      $(this.mainTopBar.nativeElement).hide().css("width","").css('width', $(window).width() - ((($(window).width() - 100)* 0.1666666667)+100+2)).show(400);
 
       console.log(($(window).width() - 100)* 0.1666666667);
 
@@ -265,6 +265,8 @@ export class AdminComponent implements OnInit {
     $(this.mainColumn.nativeElement).show(400).removeClass("col-md-8 col-md-10");
     $(this.sideNavColumn.nativeElement).hide().removeClass('col-md-4 col-md-2');
     $(this.row.nativeElement).show(400).removeClass('row');
+    $(this.sideTopBar.nativeElement).css("width","").css('width', "115px").animate(600);
+    $(this.mainTopBar.nativeElement).hide().css("width","").css('width', $(window).width() - 115).show(400);
     this.sidenavService.navMenuClose();
   }
 
