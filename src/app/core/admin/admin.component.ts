@@ -131,20 +131,11 @@ export class AdminComponent implements OnInit {
     rowDiv.html("");
     console.log("two");
     if(oneColumn == true){
-      // console.log("sidenavColumn = "+($(this.sideNavColumn.nativeElement).width() + 100));
-      // console.log("mainColumn = "+($(this.mainColumn.nativeElement).width() - 100))
-      // console.log("sidenavColumn main = "+$(this.sideNavColumn.nativeElement).width());
-
-      // console.log("mainColumn main = "+$(this.mainColumn.nativeElement).width());
-
       $(this.row.nativeElement).addClass('row');
       $(this.sideNavColumn.nativeElement).addClass('col-md-2').show(); 
       $(this.mainColumn.nativeElement).hide().addClass("col-md-10").show(400);
       $(this.sideTopBar.nativeElement).css("width","").css('width', (($(window).width() - 100)* 0.1666666667)+100+2).animate(400);
       $(this.mainTopBar.nativeElement).hide().css("width","").css('width', $(window).width() - ((($(window).width() - 100)* 0.1666666667)+100+2)).show(400);
-
-      console.log(($(window).width() - 100)* 0.1666666667);
-
 
       var columnDiv = $("<div class='col-md-12'></div>")
       var content = "";
@@ -158,8 +149,6 @@ export class AdminComponent implements OnInit {
       }
       columnDiv.html(content);
       rowDiv.css("margin-left","15px").html(columnDiv.html());
-      console.log("sidenavColumn = "+$(this.sideNavColumn.nativeElement).width());
-      console.log("mainColumn = "+$(this.mainColumn.nativeElement).width())
     }else if(twoColumn){
       var content1 = "";
       var content2 = "";
