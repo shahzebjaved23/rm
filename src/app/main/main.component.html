@@ -1,8 +1,8 @@
  
 <div class="row">
 	<div class="col-md-1" style="padding-right: 0px">
-	  <md-toolbar class="sidenav" align="start" style="width: 100%;background-color: #373330;box-shadow: 0 3px 1px -2px black, 0 2px 2px 0 black, 0 1px 5px 0 black;" color="primary" class="sidenav-toolbar mat-elevation-z2">
-	    <div fxLayout="row" style="width: 100%;">
+	  <md-toolbar class="sidenav" align="start" style="width: 100px;background-color: #373330;box-shadow: 0 3px 1px -2px black, 0 2px 2px 0 black, 0 1px 5px 0 black;" color="primary" class="sidenav-toolbar mat-elevation-z2">
+	    <div fxLayout="row" >
 	      <span style="width: 22px; text-align: center; margin-left: -3px;" fxFlexAlign="center"><img src="assets/img/icon.png" style="width: 25px; vertical-align: text-top;"></span>
 	      <img style="height: 35px; margin-left: 24px; margin-bottom: -5px;" src="assets/img/logo.png" fxFlexAlign="center" class="fade-in-on-icon-sidenav">
 	      <span fxFlex><!-- fill space --></span>
@@ -13,13 +13,7 @@
 	        </button>
 	      </div>
 	    </div>
-	  </md-toolbar>
-	  <md-sidenav class="sidenav" sty [opened]="sidenavOpen" align="start" [mode]="sidenavMode" msIconSidenav   #sidenav>
-	      <ms-sidenav></ms-sidenav>
-	  </md-sidenav> 
-	 
-
-	  	
+	  </md-toolbar>  	
 
 	</div>
 	<div class="col-md-11" style="padding-left: 0px">
@@ -79,6 +73,20 @@
 	</div>
 </div>
 
+<md-sidenav-container>
+		 <md-sidenav class="sidenav" sty [opened]="sidenavOpen" align="start" [mode]="sidenavMode" msIconSidenav   #sidenav>
+		      <ms-sidenav></ms-sidenav>
+		  </md-sidenav>
+		  </md-sidenav-container>
+
+<div class="row">
+	<div class="col-md-1">
+
+	</div>
+	<div class="col-md-11">
+		
+	</div>
+</div>
 
 
 

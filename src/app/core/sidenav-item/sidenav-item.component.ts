@@ -38,6 +38,7 @@ export class SidenavItemComponent implements OnInit {
         this.isMenuOpen = true;
       }else if(state == 'close'){
         this.isMenuOpen = false;
+        $(this.textSpan.nativeElement).css("color","");
       }
     })
 

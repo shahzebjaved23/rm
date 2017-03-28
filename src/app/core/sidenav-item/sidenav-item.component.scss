@@ -228,6 +228,11 @@ md-nav-list a.sidenav-anchor {
   color: white;
 }
 
+.menu-item:hover{
+  filter: grayscale(0%);
+  color: white; 
+}
+
 .img-colored{
   filter: grayscale(0%);
 }

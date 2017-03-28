@@ -22,6 +22,8 @@ export class AdminComponent implements OnInit {
   @ViewChild('col4') sideNavColumn;
   @ViewChild('col8') mainColumn;
   @ViewChild('rowDiv') rowDiv;
+  @ViewChild('sideTopBar') sideTopBar;
+  @ViewChild('mainTopBar') mainTopBar;
 
   public item: SidenavItem;
   public subItems: SidenavItem[];
@@ -129,9 +131,21 @@ export class AdminComponent implements OnInit {
     rowDiv.html("");
     console.log("two");
     if(oneColumn == true){
+      // console.log("sidenavColumn = "+($(this.sideNavColumn.nativeElement).width() + 100));
+      // console.log("mainColumn = "+($(this.mainColumn.nativeElement).width() - 100))
+      // console.log("sidenavColumn main = "+$(this.sideNavColumn.nativeElement).width());
+
+      // console.log("mainColumn main = "+$(this.mainColumn.nativeElement).width());
+
       $(this.row.nativeElement).addClass('row');
       $(this.sideNavColumn.nativeElement).addClass('col-md-2').show("slide");
+      $(this.sideTopBar.nativeElement).css("width","").css('width', (($(window).width() - 100)* 0.1666666667)+100+2).animate(400);
+      $(this.mainTopBar.nativeElement).hide().css("width","").css('width', 1060).show(400);
       $(this.mainColumn.nativeElement).hide().addClass("col-md-10").show(400);
+
+      console.log(($(window).width() - 100)* 0.1666666667);
+
+
       var columnDiv = $("<div class='col-md-12'></div>")
       var content = "";
       for(let item of this.item.subItems){
@@ -144,6 +158,8 @@ export class AdminComponent implements OnInit {
       }
       columnDiv.html(content);
       rowDiv.css("margin-left","15px").html(columnDiv.html());
+      console.log("sidenavColumn = "+$(this.sideNavColumn.nativeElement).width());
+      console.log("mainColumn = "+$(this.mainColumn.nativeElement).width())
     }else if(twoColumn){
       var content1 = "";
       var content2 = "";
@@ -176,7 +192,14 @@ export class AdminComponent implements OnInit {
       rowDiv.html("").css("margin-left","0px").append(div1).append(div2);
     }else if(threeColumn){
       
-    }    
+    }
+      console.log("sidenavColumn = "+(document.getElementById("smallColumn").offsetWidth ));
+      console.log("mainColumn = "+$(this.mainColumn.nativeElement).css("width"))  // body...
+        
+  }
+
+  onNavLoad(){
+    console.log("sidenavColumn = "+($("#smallColumn").width() + 30));
   }
 
   getWindowHeight(){
