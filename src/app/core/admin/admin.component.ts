@@ -115,7 +115,6 @@ export class AdminComponent implements OnInit {
         twoColumn = true;
         oneColumn = false;
         breakItemTwo = item;
-        console.log("one");
         for(let subitem of item.subItems){
           contentHeight2 = contentHeight2 + this.getSubItemHeight(subitem);
           if(contentHeight2 > this.getWindowHeight() - 200){
@@ -129,7 +128,6 @@ export class AdminComponent implements OnInit {
 
     // after the loop is run, generate the content using the variables
     rowDiv.html("");
-    console.log("two");
     if(oneColumn == true){
       $(this.row.nativeElement).addClass('row');
       $(this.sideNavColumn.nativeElement).addClass('col-md-2').show(); 
@@ -140,7 +138,7 @@ export class AdminComponent implements OnInit {
       var columnDiv = $("<div class='col-md-12'></div>")
       var content = "";
       for(let item of this.item.subItems){
-        content = content + "<h4 style='color:#a79d95'>"+item.name+"</h4>"
+        content = content + "<h4 style='color:#a79d95;padding-top:20px'>"+item.name+"</h4>"
         if(item.subItems.length > 0){
           for(let subitem of item.subItems){
             content = content + "<p style='color:white'>"+subitem.name+"</p>"
@@ -163,14 +161,14 @@ export class AdminComponent implements OnInit {
 
       for(let item of this.item.subItems){
         if(item != breakItemTwo){
-          content1 = content1 + "<h4 style='color:#a79d95'>"+item.name+"</h4>"
+          content1 = content1 + "<h4 style='color:#a79d95;padding-top:20px'>"+item.name+"</h4>"
           if(item.subItems.length > 0){
             for(let subitem of item.subItems){
               content1 = content1 + "<p style='color:white'>"+subitem.name+"</p>"
             }
           }  
         }else{
-          content2 = content2 + "<h4 style='color:#a79d95'>"+item.name+"</h4>"
+          content2 = content2 + "<h4 style='color:#a79d95;padding-top:20px'>"+item.name+"</h4>"
           if(item.subItems.length > 0){
             for(let subitem of item.subItems){
               content2 = content2 + "<p style='color:white'>"+subitem.name+"</p>"
@@ -182,15 +180,8 @@ export class AdminComponent implements OnInit {
       div2.html(content2);
       rowDiv.html("").css("margin-left","0px").append(div1).append(div2);
     }else if(threeColumn){
-      
+      alert("three")
     }
-      console.log("sidenavColumn = "+(document.getElementById("smallColumn").offsetWidth ));
-      console.log("mainColumn = "+$(this.mainColumn.nativeElement).css("width"))  // body...
-        
-  }
-
-  onNavLoad(){
-    console.log("sidenavColumn = "+($("#smallColumn").width() + 30));
   }
 
   getWindowHeight(){
